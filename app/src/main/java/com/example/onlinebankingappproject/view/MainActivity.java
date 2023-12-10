@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiService;
+import com.example.onlinebankingappproject.api.ApiAuthService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                 // API servisini oluştur
-                ApiService apiService = new ApiService();
+                ApiAuthService apiAuthService = new ApiAuthService();
 
-                apiService.login(email,password);
+                apiAuthService.login(email,password);
 
             }
         });
