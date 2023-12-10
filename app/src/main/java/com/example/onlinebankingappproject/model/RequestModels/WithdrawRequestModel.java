@@ -7,4 +7,9 @@ public class WithdrawRequestModel {
     private String withdrawal_amount;
     @SerializedName("account_id")
     private String account_id;
+
+    public WithdrawRequestModel(String withdrawal_amount, String account_id) {
+        this.withdrawal_amount = withdrawal_amount;
+        this.account_id = account_id;
+    }
 }

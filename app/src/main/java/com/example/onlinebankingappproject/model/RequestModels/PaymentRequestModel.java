@@ -17,4 +17,11 @@ public class PaymentRequestModel {
     private String payment_amount;
 
 
+    public PaymentRequestModel(String beneficiary, String account_number, String account_id, String reference, String payment_amount) {
+        this.beneficiary = beneficiary;
+        this.account_number = account_number;
+        this.account_id = account_id;
+        this.reference = reference;
+        this.payment_amount = payment_amount;
+    }
 }

@@ -10,8 +10,12 @@ import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel
 import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
 import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
+import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
 import com.example.onlinebankingappproject.model.ResponseModels.RegisterResponseModel;
+import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -46,13 +50,13 @@ public interface ApiServiceInterface {
     Call<DashboardResponseModel> getDashboard();
 
     @GET("http://10.0.2.2:8070/app/payment_history")
-    Call<TransactionResponseModel> getPaymentHistory();
+    Call<List<PaymentHistoryModel>> getPaymentHistory();
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
-    Call<TransactionResponseModel> getTransactionHistory();
+    Call<List<TransactionHistoryModel>> getTransactionHistory();
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
-    Call<TransactionResponseModel> getAccountHistory();
+    Call<List<TransactionHistoryModel>> getAccountTransactionHistory();
 
     @GET("http://10.0.2.2:8070/app/logout")
     Call logout();

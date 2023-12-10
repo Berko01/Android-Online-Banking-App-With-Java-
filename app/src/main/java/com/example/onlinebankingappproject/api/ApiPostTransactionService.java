@@ -1,9 +1,12 @@
 package com.example.onlinebankingappproject.api;
 
 import com.example.onlinebankingappproject.model.RequestModels.CreateAccountRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
+import com.example.onlinebankingappproject.model.RequestModels.DepositRequestModel;
+import com.example.onlinebankingappproject.model.RequestModels.PaymentRequestModel;
+import com.example.onlinebankingappproject.model.RequestModels.TransferRequestModel;
+import com.example.onlinebankingappproject.model.RequestModels.WithdrawRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
+import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,6 +48,166 @@ public class ApiPostTransactionService {
 
             @Override
             public void onFailure(Call<AccountModel> call, Throwable t) {
+                // İstek başarısız olduğunda buraya gelir
+                System.err.println("Request Failure: " + t.getMessage());
+            }
+        });
+    }
+
+
+    public void depositTransaction(String deposit_amount, int account_id) {
+        // Retrofit istemcisini oluştur
+        Retrofit retrofit = ApiClient.getClient();
+
+        // API servisini oluştur
+        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+        // Login Request modeli oluştur
+        DepositRequestModel depositRequestModel = new DepositRequestModel(deposit_amount, account_id);
+        // API'ye POST isteği gönder
+        Call<TransactionResponseModel> call = apiService.depositTransaction(depositRequestModel);
+
+        // Asenkron olarak isteği gerçekleştir
+        call.enqueue(new Callback<TransactionResponseModel>() {
+            @Override
+            public void onResponse(Call<TransactionResponseModel> call, Response<TransactionResponseModel> response) {
+                // İstek başarılı ise buraya gelir
+                if (response.isSuccessful()) {
+                    TransactionResponseModel responseData = response.body();
+                    // response verilerini kullan
+                    System.out.println("Response Data: " + responseData.getUserAccounts());
+                } else {
+                    try {
+                        String errorBody = response.errorBody().string();
+                        System.err.println("Error Response: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TransactionResponseModel> call, Throwable t) {
+                // İstek başarısız olduğunda buraya gelir
+                System.err.println("Request Failure: " + t.getMessage());
+            }
+        });
+    }
+
+    public void transferTransaction(String sourceAccount, String targetAccount, String amount) {
+        // Retrofit istemcisini oluştur
+        Retrofit retrofit = ApiClient.getClient();
+
+        // API servisini oluştur
+        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+        // Login Request modeli oluştur
+        TransferRequestModel transferRequestModel = new TransferRequestModel(sourceAccount, targetAccount,amount);
+        // API'ye POST isteği gönder
+        Call<TransactionResponseModel> call = apiService.transferTransaction(transferRequestModel);
+
+        // Asenkron olarak isteği gerçekleştir
+        call.enqueue(new Callback<TransactionResponseModel>() {
+            @Override
+            public void onResponse(Call<TransactionResponseModel> call, Response<TransactionResponseModel> response) {
+                // İstek başarılı ise buraya gelir
+                if (response.isSuccessful()) {
+                    TransactionResponseModel responseData = response.body();
+                    // response verilerini kullan
+                    System.out.println("Response Data: " + responseData.getUserAccounts());
+                } else {
+                    try {
+                        String errorBody = response.errorBody().string();
+                        System.err.println("Error Response: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TransactionResponseModel> call, Throwable t) {
+                // İstek başarısız olduğunda buraya gelir
+                System.err.println("Request Failure: " + t.getMessage());
+            }
+        });
+    }
+
+
+    public void withdrawTransaction(String withdrawal_amount, String account_id) {
+        // Retrofit istemcisini oluştur
+        Retrofit retrofit = ApiClient.getClient();
+
+        // API servisini oluştur
+        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+        // Login Request modeli oluştur
+        WithdrawRequestModel withdrawRequestModel = new WithdrawRequestModel(withdrawal_amount, account_id);
+        // API'ye POST isteği gönder
+        Call<TransactionResponseModel> call = apiService.withdrawTransaction(withdrawRequestModel);
+
+        // Asenkron olarak isteği gerçekleştir
+        call.enqueue(new Callback<TransactionResponseModel>() {
+            @Override
+            public void onResponse(Call<TransactionResponseModel> call, Response<TransactionResponseModel> response) {
+                // İstek başarılı ise buraya gelir
+                if (response.isSuccessful()) {
+                    TransactionResponseModel responseData = response.body();
+                    // response verilerini kullan
+                    System.out.println("Response Data: " + responseData.getUserAccounts());
+                } else {
+                    try {
+                        String errorBody = response.errorBody().string();
+                        System.err.println("Error Response: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TransactionResponseModel> call, Throwable t) {
+                // İstek başarısız olduğunda buraya gelir
+                System.err.println("Request Failure: " + t.getMessage());
+            }
+        });
+    }
+
+
+    public void paymentTransaction(String beneficiary, String account_number,String account_id,
+                                   String reference, String payment_amount) {
+        // Retrofit istemcisini oluştur
+        Retrofit retrofit = ApiClient.getClient();
+
+        // API servisini oluştur
+        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+        // Login Request modeli oluştur
+        PaymentRequestModel paymentRequestModel = new PaymentRequestModel(beneficiary, account_number,account_id,reference,payment_amount);
+        // API'ye POST isteği gönder
+        Call<TransactionResponseModel> call = apiService.paymentTransaction(paymentRequestModel);
+
+        // Asenkron olarak isteği gerçekleştir
+        call.enqueue(new Callback<TransactionResponseModel>() {
+            @Override
+            public void onResponse(Call<TransactionResponseModel> call, Response<TransactionResponseModel> response) {
+                // İstek başarılı ise buraya gelir
+                if (response.isSuccessful()) {
+                    TransactionResponseModel responseData = response.body();
+                    // response verilerini kullan
+                    System.out.println("Response Data: " + responseData.getUserAccounts());
+                } else {
+                    try {
+                        String errorBody = response.errorBody().string();
+                        System.err.println("Error Response: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TransactionResponseModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
             }
