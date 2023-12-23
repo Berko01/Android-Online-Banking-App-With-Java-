@@ -12,7 +12,7 @@ public class DashboardResponseModel {
     @SerializedName("totalBalance")
     private BigDecimal totalBalance;
 
-    @SerializedName("user")
+    @SerializedName("userAccounts")
     private List<AccountModel> userAccounts;
 
     public DashboardResponseModel(BigDecimal totalBalance, List<AccountModel> userAccounts) {

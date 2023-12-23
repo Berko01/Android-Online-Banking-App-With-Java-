@@ -8,8 +8,12 @@ import com.example.onlinebankingappproject.model.RequestModels.PaymentRequestMod
 import com.example.onlinebankingappproject.model.RequestModels.TransferRequestModel;
 import com.example.onlinebankingappproject.model.RequestModels.WithdrawRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
+import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +28,8 @@ public class ApiPostTransactionService {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
     }
-    public void createAccount(String account_name, String account_type) {
+    public CompletableFuture<AccountModel> createAccount(String account_name, String account_type) {
+        CompletableFuture<AccountModel> future = new CompletableFuture<>();
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -48,12 +53,14 @@ public class ApiPostTransactionService {
                     AccountModel responseData = response.body();
                     // response verilerini kullan
                     System.out.println("Response Data: " + responseData.getAccount_name() + " " + responseData.getAccount_type());
+                    future.complete(responseData);
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
                     } catch (Exception e) {
                         e.printStackTrace();
+                        future.completeExceptionally(e);
                     }
                 }
             }
@@ -62,8 +69,11 @@ public class ApiPostTransactionService {
             public void onFailure(Call<AccountModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
+                future.completeExceptionally(t);
             }
         });
+
+        return future;
     }
 
 

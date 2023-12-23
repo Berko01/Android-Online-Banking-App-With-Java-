@@ -8,12 +8,13 @@ import com.example.onlinebankingappproject.model.ResponseModels.TransactionHisto
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
+import java.util.concurrent.CompletableFuture;
 public class ApiGetTransactionService {
     private Context context;
     private LocalStorageManager localStorageManager;
@@ -24,7 +25,10 @@ public class ApiGetTransactionService {
 
     }
 
-    public void getDashboard(String account_name, String account_type) {
+
+    public CompletableFuture<DashboardResponseModel> getDashboardAsync() {
+        CompletableFuture<DashboardResponseModel> future = new CompletableFuture<>();
+
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -34,39 +38,41 @@ public class ApiGetTransactionService {
         // Access token'ı SharedPreferences veya başka bir kaynaktan al
         String accessToken = localStorageManager.getAccessToken();
 
-
         // API'ye POST isteği gönder
-        Call<DashboardResponseModel> call = apiService.getDashboard("Bearer " + accessToken);
+        Call<DashboardResponseModel> call = apiService.getDashboard("Bearer: " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<DashboardResponseModel>() {
             @Override
             public void onResponse(Call<DashboardResponseModel> call, Response<DashboardResponseModel> response) {
-                // İstek başarılı ise buraya gelir
                 if (response.isSuccessful()) {
                     DashboardResponseModel responseData = response.body();
-                    // response verilerini kullan
-                    System.out.println("Response Data: " + responseData.getUserAccounts() + " " + responseData.getTotalBalance());
+                    future.complete(responseData);
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
+                        future.completeExceptionally(new RuntimeException("Error Response: " + errorBody));
                     } catch (Exception e) {
                         e.printStackTrace();
+                        future.completeExceptionally(e);
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<DashboardResponseModel> call, Throwable t) {
-                // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
+                future.completeExceptionally(t);
             }
         });
+
+        return future;
     }
 
 
-    public void getPaymentHistory(String account_name, String account_type) {
+    public CompletableFuture<List<PaymentHistoryModel>> getPaymentHistory(String account_name, String account_type) {
+        CompletableFuture<List<PaymentHistoryModel>> future = new CompletableFuture<>();
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -89,12 +95,15 @@ public class ApiGetTransactionService {
                     List<PaymentHistoryModel> responseData = response.body();
                     // response verilerini kullan
                     System.out.println("Response Data: " + responseData.get(0));
+                    future.complete(responseData);
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
+                        future.completeExceptionally(new RuntimeException("Error Response: " + errorBody));
                     } catch (Exception e) {
                         e.printStackTrace();
+                        future.completeExceptionally(e);
                     }
                 }
             }
@@ -103,12 +112,16 @@ public class ApiGetTransactionService {
             public void onFailure(Call<List<PaymentHistoryModel>> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
+                future.completeExceptionally(t);
             }
         });
+
+        return future;
     }
 
 
-    public void getTransactionHistory(String account_name, String account_type) {
+    public CompletableFuture<List<TransactionHistoryModel>> getTransactionHistory(String account_name, String account_type) {
+        CompletableFuture<List<TransactionHistoryModel>> future = new CompletableFuture<>();
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -131,12 +144,14 @@ public class ApiGetTransactionService {
                     List<TransactionHistoryModel> responseData = response.body();
                     // response verilerini kullan
                     System.out.println("Response Data: " + responseData.get(0));
+                    future.complete(responseData);
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
                     } catch (Exception e) {
                         e.printStackTrace();
+                        future.completeExceptionally(e);
                     }
                 }
             }
@@ -145,8 +160,11 @@ public class ApiGetTransactionService {
             public void onFailure(Call<List<TransactionHistoryModel>> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
+                future.completeExceptionally(t);
             }
         });
+
+        return future;
     }
 
 

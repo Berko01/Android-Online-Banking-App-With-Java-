@@ -1,21 +1,33 @@
 package com.example.onlinebankingappproject.model.ResponseModels;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class AccountModel {
+    @SerializedName("account_id")
     private  int account_id;
+    @SerializedName("user_id")
     private int user_id;
+    @SerializedName("account_number")
     private String account_number;
+    @SerializedName("account_name")
     private String account_name;
+    @SerializedName("account_type")
     private String account_type;
+    @SerializedName("balance")
     private BigDecimal balance;
+    @SerializedName("create_at")
+
     private LocalDateTime create_at;
 
-    private LocalDateTime updated_at;
+    @SerializedName("updated_at")
+    private List<Integer> updated_at;
 
     public AccountModel(int account_id, int user_id, String account_number, String account_name,
-                        String account_type, BigDecimal balance, LocalDateTime create_at, LocalDateTime updated_at) {
+                        String account_type, BigDecimal balance, LocalDateTime create_at, List<Integer> updated_at) {
         this.account_id = account_id;
         this.user_id = user_id;
         this.account_number = account_number;
@@ -82,7 +94,7 @@ public class AccountModel {
         this.create_at = create_at;
     }
 
-    public LocalDateTime getUpdated_at() {
+    public List<Integer> getUpdated_at() {
         return updated_at;
     }
 }

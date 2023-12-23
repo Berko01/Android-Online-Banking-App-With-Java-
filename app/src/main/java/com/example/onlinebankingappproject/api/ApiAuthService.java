@@ -124,7 +124,7 @@ public class ApiAuthService {
         String accessToken = localStorageManager.getAccessToken();
 
         // API'ye POST isteği gönder
-        Call<Void> call = apiService.logout("Bearer " + accessToken);
+        Call<Void> call = apiService.logout("Bearer: " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<Void>() {
