@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OnlineBankingAppProject</string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="app_slogan"><u>CB Bank: Geleceği Şekillendiren İnovasyon ve Vizyon Bankası</u></string>
+
+
 </resources>

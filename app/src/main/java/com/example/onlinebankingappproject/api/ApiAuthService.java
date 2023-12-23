@@ -1,5 +1,9 @@
 package com.example.onlinebankingappproject.api;
+import android.util.Log;
+import android.content.Context;
 
+import com.example.onlinebankingappproject.Utilities.TokenUtil.AccessTokenManager;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.TokenManager;
 import com.example.onlinebankingappproject.model.RequestModels.RegisterRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
 import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
@@ -11,11 +15,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ApiAuthService {
+    AccessTokenManager tokenManager;
+    public ApiAuthService() {
+        tokenManager = AccessTokenManager.getInstance();
+    }
 
     public void login(String email, String password) {
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
-
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
@@ -31,12 +38,13 @@ public class ApiAuthService {
                 // İstek başarılı ise buraya gelir
                 if (response.isSuccessful()) {
                     AccessTokenModel responseData = response.body();
+                    tokenManager.setAccessToken(responseData.getAccessToken());
                     // response verilerini kullan
-                    System.out.println("Response Data: " + responseData.getAccessToken() + " " + responseData.getMessage());
+                    Log.d("ApiAuthService", "Response Data: " + tokenManager.getAccessToken() + " " + responseData.getMessage());
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
-                        System.err.println("Error Response: " + errorBody);
+                        Log.e("ApiAuthService", "Error Response: " + errorBody);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -46,7 +54,7 @@ public class ApiAuthService {
             @Override
             public void onFailure(Call<AccessTokenModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
-                System.err.println("Request Failure: " + t.getMessage());
+                Log.e("ApiAuthService", "Request Failure: " + t.getMessage());
             }
         });
     }

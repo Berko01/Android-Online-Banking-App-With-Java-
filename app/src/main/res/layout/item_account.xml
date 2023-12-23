@@ -1,0 +1,41 @@
+<!-- res/layout/item_account.xml -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/accountNumberTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Account Number"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/accountNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Account Name"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/accountTypeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Account Type"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/balanceTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Balance"
+        android:textSize="16sp" />
+
+</LinearLayout>
