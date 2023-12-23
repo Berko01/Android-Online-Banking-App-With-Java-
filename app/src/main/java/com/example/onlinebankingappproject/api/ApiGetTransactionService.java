@@ -1,8 +1,11 @@
 package com.example.onlinebankingappproject.api;
 
+import android.content.Context;
+
 import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 
 import java.util.List;
 
@@ -12,7 +15,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ApiGetTransactionService {
+    private Context context;
+    private LocalStorageManager localStorageManager;
 
+    public ApiGetTransactionService(Context context){
+        this.context = context;
+        this.localStorageManager = new LocalStorageManager(context);
+
+    }
 
     public void getDashboard(String account_name, String account_type) {
         // Retrofit istemcisini oluştur
@@ -21,9 +31,12 @@ public class ApiGetTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
 
         // API'ye POST isteği gönder
-        Call<DashboardResponseModel> call = apiService.getDashboard();
+        Call<DashboardResponseModel> call = apiService.getDashboard("Bearer " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<DashboardResponseModel>() {
@@ -60,9 +73,12 @@ public class ApiGetTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
 
         // API'ye POST isteği gönder
-        Call<List<PaymentHistoryModel>> call = apiService.getPaymentHistory();
+        Call<List<PaymentHistoryModel>> call = apiService.getPaymentHistory("Bearer " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<List<PaymentHistoryModel>>() {
@@ -99,9 +115,12 @@ public class ApiGetTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
 
         // API'ye POST isteği gönder
-        Call<List<TransactionHistoryModel>> call = apiService.getTransactionHistory();
+        Call<List<TransactionHistoryModel>> call = apiService.getTransactionHistory("Bearer " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<List<TransactionHistoryModel>>() {
@@ -131,39 +150,6 @@ public class ApiGetTransactionService {
     }
 
 
-    public void logout() {
-        // Retrofit istemcisini oluştur
-        Retrofit retrofit = ApiClient.getClient();
-
-        // API servisini oluştur
-        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
 
-        // API'ye POST isteği gönder
-        Call call = apiService.logout();
-
-        // Asenkron olarak isteği gerçekleştir
-        call.enqueue(new Callback<List<TransactionHistoryModel>>() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                // İstek başarılı ise buraya gelir
-                if (response.isSuccessful()) {
-                    System.out.println("Logged out successfully.");
-                } else {
-                    try {
-                        String errorBody = response.errorBody().string();
-                        System.err.println("Error Response: " + errorBody);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                // İstek başarısız olduğunda buraya gelir
-                System.err.println("Request Failure: " + t.getMessage());
-            }
-    });
-}
 }

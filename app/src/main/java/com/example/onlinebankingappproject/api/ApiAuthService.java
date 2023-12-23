@@ -108,6 +108,48 @@ public class ApiAuthService {
             public void onFailure(Call<RegisterResponseModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
-            }});
-}
+            }
+        });
+    }
+
+
+    public void logout() {
+        // Retrofit istemcisini oluştur
+        Retrofit retrofit = ApiClient.getClient();
+
+        // API servisini oluştur
+        ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
+        // API'ye POST isteği gönder
+        Call<Void> call = apiService.logout("Bearer " + accessToken);
+
+        // Asenkron olarak isteği gerçekleştir
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                // İstek başarılı ise buraya gelir
+                if (response.isSuccessful()) {
+                    // response verilerini kullan
+                    System.out.println("Logout Successfull.");
+                    localStorageManager.removeAccessToken();
+                } else {
+                    try {
+                        String errorBody = response.errorBody().string();
+                        System.err.println("Error Response: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // İstek başarısız olduğunda buraya gelir
+                System.err.println("Request Failure: " + t.getMessage());
+            }
+        });
+    }
 }

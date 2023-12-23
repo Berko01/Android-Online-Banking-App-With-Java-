@@ -1,5 +1,7 @@
 package com.example.onlinebankingappproject.api;
 
+import android.content.Context;
+
 import com.example.onlinebankingappproject.model.RequestModels.CreateAccountRequestModel;
 import com.example.onlinebankingappproject.model.RequestModels.DepositRequestModel;
 import com.example.onlinebankingappproject.model.RequestModels.PaymentRequestModel;
@@ -7,6 +9,7 @@ import com.example.onlinebankingappproject.model.RequestModels.TransferRequestMo
 import com.example.onlinebankingappproject.model.RequestModels.WithdrawRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,7 +17,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ApiPostTransactionService {
+    private Context context;
+    private LocalStorageManager localStorageManager;
 
+    public ApiPostTransactionService(){
+        this.context = context;
+        this.localStorageManager = new LocalStorageManager(context);
+    }
     public void createAccount(String account_name, String account_type) {
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
@@ -22,10 +31,13 @@ public class ApiPostTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
         // Login Request modeli oluştur
         CreateAccountRequestModel createAccountRequestModel = new CreateAccountRequestModel(account_name, account_type);
         // API'ye POST isteği gönder
-        Call<AccountModel> call = apiService.createAccount(createAccountRequestModel);
+        Call<AccountModel> call = apiService.createAccount("Bearer " + accessToken, createAccountRequestModel);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<AccountModel>() {
@@ -62,10 +74,13 @@ public class ApiPostTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
         // Login Request modeli oluştur
         DepositRequestModel depositRequestModel = new DepositRequestModel(deposit_amount, account_id);
         // API'ye POST isteği gönder
-        Call<TransactionResponseModel> call = apiService.depositTransaction(depositRequestModel);
+        Call<TransactionResponseModel> call = apiService.depositTransaction("Bearer " + accessToken, depositRequestModel);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<TransactionResponseModel>() {
@@ -101,10 +116,13 @@ public class ApiPostTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
         // Login Request modeli oluştur
         TransferRequestModel transferRequestModel = new TransferRequestModel(sourceAccount, targetAccount,amount);
         // API'ye POST isteği gönder
-        Call<TransactionResponseModel> call = apiService.transferTransaction(transferRequestModel);
+        Call<TransactionResponseModel> call = apiService.transferTransaction("Bearer " + accessToken, transferRequestModel);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<TransactionResponseModel>() {
@@ -141,10 +159,13 @@ public class ApiPostTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
         // Login Request modeli oluştur
         WithdrawRequestModel withdrawRequestModel = new WithdrawRequestModel(withdrawal_amount, account_id);
         // API'ye POST isteği gönder
-        Call<TransactionResponseModel> call = apiService.withdrawTransaction(withdrawRequestModel);
+        Call<TransactionResponseModel> call = apiService.withdrawTransaction("Bearer " + accessToken, withdrawRequestModel);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<TransactionResponseModel>() {
@@ -182,10 +203,13 @@ public class ApiPostTransactionService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
+        // Access token'ı SharedPreferences veya başka bir kaynaktan al
+        String accessToken = localStorageManager.getAccessToken();
+
         // Login Request modeli oluştur
         PaymentRequestModel paymentRequestModel = new PaymentRequestModel(beneficiary, account_number,account_id,reference,payment_amount);
         // API'ye POST isteği gönder
-        Call<TransactionResponseModel> call = apiService.paymentTransaction(paymentRequestModel);
+        Call<TransactionResponseModel> call = apiService.paymentTransaction("Bearer " + accessToken, paymentRequestModel);
 
         // Asenkron olarak isteği gerçekleştir
         call.enqueue(new Callback<TransactionResponseModel>() {

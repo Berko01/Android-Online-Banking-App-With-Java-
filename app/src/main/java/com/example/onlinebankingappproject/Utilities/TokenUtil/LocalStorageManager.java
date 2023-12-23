@@ -31,4 +31,11 @@ public class LocalStorageManager {
         // Access token'ı SharedPreferences'dan al
         return sharedPreferences.getString(ACCESS_TOKEN_KEY,null);
 }
+    public void removeAccessToken() {
+        // Access token'ı SharedPreferences'dan sil
+        editor.remove(ACCESS_TOKEN_KEY);
+
+        // Değişiklikleri kaydet
+        editor.apply();
+    }
 }

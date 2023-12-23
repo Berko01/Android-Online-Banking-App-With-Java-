@@ -20,6 +20,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiServiceInterface {
@@ -31,34 +32,34 @@ public interface ApiServiceInterface {
     Call<AccessTokenModel> login(@Body LoginRequestModel loginRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/deposit")
-    Call<TransactionResponseModel> depositTransaction(@Body DepositRequestModel depositRequestModel);
+    Call<TransactionResponseModel> depositTransaction(@Header("Authorization") String accessToken, @Body DepositRequestModel depositRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/transfer?")
-    Call<TransactionResponseModel> transferTransaction(@Body TransferRequestModel transferRequestModel);
+    Call<TransactionResponseModel> transferTransaction(@Header("Authorization") String accessToken, @Body TransferRequestModel transferRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/withdraw")
-    Call<TransactionResponseModel> withdrawTransaction(@Body WithdrawRequestModel withdrawRequestModel);
+    Call<TransactionResponseModel> withdrawTransaction(@Header("Authorization") String accessToken, @Body WithdrawRequestModel withdrawRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/payment")
-    Call<TransactionResponseModel> paymentTransaction(@Body PaymentRequestModel paymentRequestModel);
+    Call<TransactionResponseModel> paymentTransaction(@Header("Authorization") String accessToken, @Body PaymentRequestModel paymentRequestModel);
 
     @POST("http://10.0.2.2:8070/account/create_account")
-    Call<AccountModel> createAccount(@Body CreateAccountRequestModel createAccountRequestModel);
+    Call<AccountModel> createAccount(@Header("Authorization") String accessToken, @Body CreateAccountRequestModel createAccountRequestModel);
 
 
     @GET("http://10.0.2.2:8070/app/dashboard")
-    Call<DashboardResponseModel> getDashboard();
+    Call<DashboardResponseModel> getDashboard(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/payment_history")
-    Call<List<PaymentHistoryModel>> getPaymentHistory();
+    Call<List<PaymentHistoryModel>> getPaymentHistory(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
-    Call<List<TransactionHistoryModel>> getTransactionHistory();
+    Call<List<TransactionHistoryModel>> getTransactionHistory(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
     Call<List<TransactionHistoryModel>> getAccountTransactionHistory();
 
-    @GET("http://10.0.2.2:8070/app/logout")
-    Call logout();
+    @GET("http://10.0.2.2:8070/logout")
+    Call<Void> logout(@Header("Authorization") String accessToken);
 
 }
