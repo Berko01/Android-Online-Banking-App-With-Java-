@@ -11,6 +11,7 @@ import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiAuthService;
 
 public class LoginActivity extends AppCompatActivity {
+
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
@@ -32,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-
+        ApiAuthService apiAuthService = new ApiAuthService();
         // Giriş yapma butonuna tıklanınca çağrılacak fonksiyonu belirleme
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
                 // API servisini oluştur
-                ApiAuthService apiAuthService = new ApiAuthService();
                 apiAuthService.login(email,password);
 
             }
