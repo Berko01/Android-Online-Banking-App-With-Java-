@@ -1,94 +1,54 @@
-package com.example.onlinebankingappproject.view;
-
-import android.content.Intent;
+package com.example.onlinebankingappproject.view;// DashboardActivity.java
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiAuthService;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
+import com.example.onlinebankingappproject.adapters.DashboardAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
+import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
+import com.example.onlinebankingappproject.view.BaseActivity;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
 
-    private TextView accessTokenTextView;
-    private LocalStorageManager localStorageManager;
-    private ApiAuthService apiAuthService;
+    private RecyclerView recyclerView;
+    private DashboardAdapter dashboardAdapter;
+    private TextView totalUserBalance;
     private ApiGetTransactionService apiGetTransactionService;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // Ensure Toolbar is used for the action bar
-        Toolbar toolbar = findViewById(R.id.toolbar); // Assuming a Toolbar with ID "toolbar" in your layout
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        apiAuthService = new ApiAuthService(this);
-        apiGetTransactionService = new ApiGetTransactionService(this);
-        localStorageManager = new LocalStorageManager(this);
-        accessTokenTextView = findViewById(R.id.accessTokenTextView);
-
-        // Start Process Button'ını bul
+        recyclerView = findViewById(R.id.recyclerview);
+        dashboardAdapter = new DashboardAdapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setAdapter(dashboardAdapter);
+        totalUserBalance= findViewById(R.id.totalUserBalance);
         Button startProcessButton = findViewById(R.id.startProcessButton);
-
-        // Button'a tıklanma event'ini dinle
+        apiGetTransactionService = new ApiGetTransactionService(this);
         startProcessButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Butona tıklandığında yapılacak işlemleri burada tanımla
-                startProcess();
+                getDashboardData();
             }
         });
-
-
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.signout) {
-            logout();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void logout() {
-        apiAuthService.logout();
-        navigateToLogin();
-    }
-
-    private void navigateToLogin() {
-        Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void startProcess() {
+    private void getDashboardData() {
         apiGetTransactionService.getDashboardAsync().thenAccept(responseData -> {
-            // Elde edilen responseData'i kullan
-            System.out.println("Response Data: " + responseData.getUserAccounts() + " " + responseData.getTotalBalance());
-            accessTokenTextView.setText(responseData.getTotalBalance().toString());
+            // Verileri adaptöre set et
+            totalUserBalance.setText(responseData.getTotalBalance().toString());
+            dashboardAdapter.setData(responseData.getUserAccounts());
         }).exceptionally(ex -> {
             // Hata durumunu ele al
             System.err.println("Error: " + ex.getMessage());

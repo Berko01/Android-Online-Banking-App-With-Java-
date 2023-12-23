@@ -29,12 +29,6 @@
             android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.splash_screen"
-            android:exported="false" />
-        <activity
-            android:name=".view.SplashScreen"
-            android:exported="false" />
-        <activity
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>

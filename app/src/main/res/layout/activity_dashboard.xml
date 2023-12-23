@@ -1,6 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- activity_dashboard.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.onlinebankingappproject.view.DashboardActivity"
+    android:id="@+id/relativelayout">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -9,22 +14,28 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:scrollbars="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
     <TextView
-        android:id="@+id/accessTokenTextView"
+        android:id="@+id/totalUserBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Access Token: "
+        android:layout_marginTop="25dp"
+        android:text="Toplam Bakiye: "
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/startProcessButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/accessTokenTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:onClick="startProcess"
+        android:layout_marginTop="500dp"
         android:text="Start Process" />
-
 </RelativeLayout>
