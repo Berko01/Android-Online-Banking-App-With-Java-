@@ -4,26 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/button_parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp" />
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/totalAmount"
+        android:id="@+id/accessTokenTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Toplam Miktar: 23,400.00 TL"
-        android:layout_below="@id/button_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_centerInParent="true"
+        android:text="Access Token: "
+        android:textSize="18sp" />
 </RelativeLayout>

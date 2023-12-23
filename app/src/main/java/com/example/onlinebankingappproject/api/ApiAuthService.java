@@ -1,13 +1,12 @@
 package com.example.onlinebankingappproject.api;
-import android.util.Log;
+
 import android.content.Context;
 
-import com.example.onlinebankingappproject.Utilities.TokenUtil.AccessTokenManager;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.TokenManager;
 import com.example.onlinebankingappproject.model.RequestModels.RegisterRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
 import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
 import com.example.onlinebankingappproject.model.ResponseModels.RegisterResponseModel;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,16 +14,25 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ApiAuthService {
-    AccessTokenManager tokenManager;
-    public ApiAuthService() {
-        tokenManager = AccessTokenManager.getInstance();
+
+    private Context context;
+    private LocalStorageManager localStorageManager;
+
+    // Constructor'a Context ekleyin
+    public ApiAuthService(Context context) {
+        this.context = context;
+        this.localStorageManager = new LocalStorageManager(context);
     }
 
     public void login(String email, String password) {
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
+
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+
+
+
 
         // Login Request modeli oluştur
         LoginRequestModel loginRequestModel = new LoginRequestModel(email, password);
@@ -38,13 +46,18 @@ public class ApiAuthService {
                 // İstek başarılı ise buraya gelir
                 if (response.isSuccessful()) {
                     AccessTokenModel responseData = response.body();
-                    tokenManager.setAccessToken(responseData.getAccessToken());
                     // response verilerini kullan
-                    Log.d("ApiAuthService", "Response Data: " + tokenManager.getAccessToken() + " " + responseData.getMessage());
+                    System.out.println("Response Data: " + responseData.getAccessToken() + " " + responseData.getMessage());
+
+                    // Access token'ı SharedPreferences'a kaydet
+                    localStorageManager.saveAccessToken(responseData.getAccessToken());
+
+
+
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
-                        Log.e("ApiAuthService", "Error Response: " + errorBody);
+                        System.err.println("Error Response: " + errorBody);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -54,7 +67,7 @@ public class ApiAuthService {
             @Override
             public void onFailure(Call<AccessTokenModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
-                Log.e("ApiAuthService", "Request Failure: " + t.getMessage());
+                System.err.println("Request Failure: " + t.getMessage());
             }
         });
     }
@@ -95,7 +108,6 @@ public class ApiAuthService {
             public void onFailure(Call<RegisterResponseModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
-            }
-        });
-    }
+            }});
+}
 }

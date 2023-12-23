@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.submit_button);
 
         // Kayıt ol butonuna tıklanınca çağrılacak fonksiyonu belirleme
-        ApiAuthService apiAuthService = new ApiAuthService();
+        ApiAuthService apiAuthService = new ApiAuthService(this);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

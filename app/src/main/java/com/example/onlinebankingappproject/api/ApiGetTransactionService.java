@@ -1,6 +1,5 @@
 package com.example.onlinebankingappproject.api;
 
-import com.example.onlinebankingappproject.Utilities.TokenUtil.TokenManager;
 import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
@@ -13,6 +12,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ApiGetTransactionService {
+
+
     public void getDashboard(String account_name, String account_type) {
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
@@ -163,7 +164,6 @@ public class ApiGetTransactionService {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
             }
-        });
-    }
-
+    });
+}
 }

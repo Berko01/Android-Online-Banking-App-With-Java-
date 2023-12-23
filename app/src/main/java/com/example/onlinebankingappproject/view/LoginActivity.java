@@ -1,6 +1,8 @@
 package com.example.onlinebankingappproject.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.TextView;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,11 @@ import android.widget.EditText;
 import android.content.Intent;
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiAuthService;
+import com.example.onlinebankingappproject.api.ApiGetTransactionService;
+import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
+import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
+
+import retrofit2.Callback;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-        ApiAuthService apiAuthService = new ApiAuthService();
+        ApiAuthService apiAuthService = new ApiAuthService(this);
         // Giriş yapma butonuna tıklanınca çağrılacak fonksiyonu belirleme
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +50,14 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString();
                 // API servisini oluştur
                 apiAuthService.login(email,password);
-
+                navigateToDashboard();
             }
+
         });
+    }
+    private void navigateToDashboard() {
+        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+        startActivity(intent);
+        finish(); // LoginActivity'yi geri dönüş yapmasın diye kapat
     }
 }
