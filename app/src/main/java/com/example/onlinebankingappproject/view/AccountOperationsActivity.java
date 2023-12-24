@@ -48,32 +48,38 @@ public class AccountOperationsActivity extends AppCompatActivity {
         depositButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Para yatırma işlemi
-                // İşlemleri gerçekleştir...
+                Intent depositIntent = new Intent(AccountOperationsActivity.this, DepositActivity.class);
+                depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
+                startActivity(depositIntent);
             }
         });
-
         transferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Para transferi işlemi
-                // İşlemleri gerçekleştir...
+                Intent depositIntent = new Intent(AccountOperationsActivity.this, TransferActivity.class);
+                depositIntent.putExtra("sourceAccount", selectedAccount.getAccount_id());
+                startActivity(depositIntent);
+                finish();
             }
         });
 
         withdrawButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Para çekme işlemi
-                // İşlemleri gerçekleştir...
+                Intent depositIntent = new Intent(AccountOperationsActivity.this, WithdrawActivity.class);
+                depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
+                startActivity(depositIntent);
+                finish();
             }
         });
 
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ödeme yapma işlemi
-                // İşlemleri gerçekleştir...
+                Intent depositIntent = new Intent(AccountOperationsActivity.this, PaymentActivity.class);
+                depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
+                startActivity(depositIntent);
+                finish();
             }
         });
     }
@@ -84,5 +90,6 @@ public class AccountOperationsActivity extends AppCompatActivity {
         accountNameTextView.setText("Hesap Adı: " + accountName);
         accountTypeTextView.setText("Hesap Türü: " + accountType);
         balanceTextView.setText("Bakiye: " + balance);
+        finish();
     }
 }

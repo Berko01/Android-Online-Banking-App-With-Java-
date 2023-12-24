@@ -11,8 +11,10 @@ import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel
 import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
 import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
+import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.RegisterResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
+import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
 
 import java.util.List;
@@ -51,10 +53,10 @@ public interface ApiServiceInterface {
     Call<DashboardResponseModel> getDashboard(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/payment_history")
-    Call<List<PaymentHistoryModel>> getPaymentHistory(@Header("Authorization") String accessToken);
+    Call<PaymentHistoryResponseModel> getPaymentHistory(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
-    Call<List<TransactionHistoryModel>> getTransactionHistory(@Header("Authorization") String accessToken);
+    Call<TransactionHistoryResponseModel> getTransactionHistory(@Header("Authorization") String accessToken);
 
     @GET("http://10.0.2.2:8070/app/transaction_history")
     Call<List<TransactionHistoryModel>> getAccountTransactionHistory();

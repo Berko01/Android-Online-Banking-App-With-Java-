@@ -21,7 +21,6 @@ public class AccountModel implements  Serializable{
     @SerializedName("balance")
     private BigDecimal balance;
     @SerializedName("create_at")
-
     private LocalDateTime create_at;
 
     @SerializedName("updated_at")

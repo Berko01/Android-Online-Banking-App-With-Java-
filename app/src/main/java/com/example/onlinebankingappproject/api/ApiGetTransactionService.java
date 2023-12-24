@@ -4,8 +4,10 @@ import android.content.Context;
 
 import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
+import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryResponseModel;
 import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
+import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryResponseModel;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -71,8 +73,8 @@ public class ApiGetTransactionService {
     }
 
 
-    public CompletableFuture<List<PaymentHistoryModel>> getPaymentHistory(String account_name, String account_type) {
-        CompletableFuture<List<PaymentHistoryModel>> future = new CompletableFuture<>();
+    public CompletableFuture<PaymentHistoryResponseModel> getPaymentHistory() {
+        CompletableFuture<PaymentHistoryResponseModel> future = new CompletableFuture<>();
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -84,17 +86,17 @@ public class ApiGetTransactionService {
 
 
         // API'ye POST isteği gönder
-        Call<List<PaymentHistoryModel>> call = apiService.getPaymentHistory("Bearer " + accessToken);
+        Call<PaymentHistoryResponseModel> call = apiService.getPaymentHistory("Bearer " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
-        call.enqueue(new Callback<List<PaymentHistoryModel>>() {
+        call.enqueue(new Callback<PaymentHistoryResponseModel>() {
             @Override
-            public void onResponse(Call<List<PaymentHistoryModel>> call, Response<List<PaymentHistoryModel>> response) {
+            public void onResponse(Call<PaymentHistoryResponseModel> call, Response<PaymentHistoryResponseModel> response) {
                 // İstek başarılı ise buraya gelir
                 if (response.isSuccessful()) {
-                    List<PaymentHistoryModel> responseData = response.body();
+                    PaymentHistoryResponseModel responseData = response.body();
                     // response verilerini kullan
-                    System.out.println("Response Data: " + responseData.get(0));
+                    System.out.println("Response Data: " + responseData.getPaymentHistory());
                     future.complete(responseData);
                 } else {
                     try {
@@ -109,7 +111,7 @@ public class ApiGetTransactionService {
             }
 
             @Override
-            public void onFailure(Call<List<PaymentHistoryModel>> call, Throwable t) {
+            public void onFailure(Call<PaymentHistoryResponseModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(t);
@@ -120,8 +122,8 @@ public class ApiGetTransactionService {
     }
 
 
-    public CompletableFuture<List<TransactionHistoryModel>> getTransactionHistory(String account_name, String account_type) {
-        CompletableFuture<List<TransactionHistoryModel>> future = new CompletableFuture<>();
+    public CompletableFuture<TransactionHistoryResponseModel> getTransactionHistory() {
+        CompletableFuture<TransactionHistoryResponseModel> future = new CompletableFuture<>();
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
 
@@ -133,17 +135,17 @@ public class ApiGetTransactionService {
 
 
         // API'ye POST isteği gönder
-        Call<List<TransactionHistoryModel>> call = apiService.getTransactionHistory("Bearer " + accessToken);
+        Call<TransactionHistoryResponseModel> call = apiService.getTransactionHistory("Bearer " + accessToken);
 
         // Asenkron olarak isteği gerçekleştir
-        call.enqueue(new Callback<List<TransactionHistoryModel>>() {
+        call.enqueue(new Callback<TransactionHistoryResponseModel>() {
             @Override
-            public void onResponse(Call<List<TransactionHistoryModel>> call, Response<List<TransactionHistoryModel>> response) {
+            public void onResponse(Call<TransactionHistoryResponseModel> call, Response<TransactionHistoryResponseModel> response) {
                 // İstek başarılı ise buraya gelir
                 if (response.isSuccessful()) {
-                    List<TransactionHistoryModel> responseData = response.body();
+                    TransactionHistoryResponseModel responseData = response.body();
                     // response verilerini kullan
-                    System.out.println("Response Data: " + responseData.get(0));
+                    System.out.println("Response Data: " + responseData.getTransactionHistory());
                     future.complete(responseData);
                 } else {
                     try {
@@ -157,7 +159,7 @@ public class ApiGetTransactionService {
             }
 
             @Override
-            public void onFailure(Call<List<TransactionHistoryModel>> call, Throwable t) {
+            public void onFailure(Call<TransactionHistoryResponseModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(t);

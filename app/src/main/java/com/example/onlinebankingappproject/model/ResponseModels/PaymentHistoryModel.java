@@ -3,8 +3,11 @@ package com.example.onlinebankingappproject.model.ResponseModels;
 import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PaymentHistoryModel {
+
+
     @SerializedName("payment_id")
     private int paymentId;
     @SerializedName("account_id")
@@ -22,5 +25,40 @@ public class PaymentHistoryModel {
     @SerializedName("reason_code")
     private String reasonCode;
     @SerializedName("created_at")
-    private LocalDateTime createdAt;
+    private List<Integer> createdAtList;
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public String getBeneficiary() {
+        return beneficiary;
+    }
+
+    public String getBeneficiaryAccNo() {
+        return beneficiaryAccNo;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getReferenceNo() {
+        return referenceNo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public List<Integer>getCreatedAt() {
+        return createdAtList;
+    }
 }

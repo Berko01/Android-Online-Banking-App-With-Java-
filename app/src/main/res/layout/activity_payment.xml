@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PaymentActivity">
+    android:background="#918F8E"
+    tools:context=".PaymentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <EditText
+        android:id="@+id/beneficiaryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:hint="Beneficiary"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/accountNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/beneficiaryEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Account Number"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/referenceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accountNumberEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Reference"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/paymentAmountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/referenceEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Payment Amount"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/paymentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paymentAmountEditText"
+        android:layout_marginTop="16dp"
+        android:text="Ödeme Yap"/>
+
+</RelativeLayout>

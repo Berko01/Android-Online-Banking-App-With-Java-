@@ -29,4 +29,36 @@ public class TransactionHistoryModel {
 
     @SerializedName("created_at")
     private List<Integer> createdAt;
+
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public List<Integer> getCreatedAt() {
+        return createdAt;
+    }
 }

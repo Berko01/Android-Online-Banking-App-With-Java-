@@ -19,6 +19,7 @@ public class MenuActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Button viewDashboardButton = findViewById(R.id.viewDashboardButton);
+        Button paymentHistoryButton = findViewById(R.id.paymentHistoryButton);
 
         viewDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,12 @@ public class MenuActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 viewCreateAccount(view);
+            }
+        });
+        paymentHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                paymentHistory(view);
             }
         });
     }
@@ -52,7 +59,7 @@ public class MenuActivity extends BaseActivity {
 
     }
 
-/*    public void paymentHistory(View view) {
+    public void paymentHistory(View view) {
         // Ödeme Geçmişi sayfasına yönlendirme işlemi
         Intent intent = new Intent(this, PaymentHistoryActivity.class);
         startActivity(intent);
@@ -60,7 +67,7 @@ public class MenuActivity extends BaseActivity {
 
     public void transferHistory(View view) {
         // Transfer Geçmişi sayfasına yönlendirme işlemi
-        Intent intent = new Intent(this, TransferHistoryActivity.class);
+        Intent intent = new Intent(this, TransactionHistoryActivity.class);
         startActivity(intent);
-    }*/
+    }
 }
