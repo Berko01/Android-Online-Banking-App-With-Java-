@@ -1,4 +1,5 @@
 package com.example.onlinebankingappproject.view;// DashboardActivity.java
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,13 +36,18 @@ public class DashboardActivity extends BaseActivity {
         totalUserBalance= findViewById(R.id.totalUserBalance);
         Button startProcessButton = findViewById(R.id.startProcessButton);
         apiGetTransactionService = new ApiGetTransactionService(this);
-        startProcessButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Butona tıklandığında yapılacak işlemleri burada tanımla
-                getDashboardData();
-            }
-        });
+
+        // getDashboardData() fonksiyonunu onCreate'te çağır
+        getDashboardData();
+
+        // startProcessButton onClickListener'ını kaldır, çünkü otomatik olarak çağrıldı
+        // startProcessButton.setOnClickListener(new View.OnClickListener() {
+        //     @Override
+        //     public void onClick(View view) {
+        //         // Butona tıklandığında yapılacak işlemleri burada tanımla
+        //         getDashboardData();
+        //     }
+        // });
     }
 
     private void getDashboardData() {
