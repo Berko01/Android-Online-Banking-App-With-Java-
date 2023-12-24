@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
 import com.example.onlinebankingappproject.model.RequestModels.TransferRequestModel;
@@ -25,6 +27,8 @@ public class TransferActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         apiPostTransactionService = new ApiPostTransactionService(this);
         targetAccountEditText = findViewById(R.id.targetAccountEditText);
         amountEditText = findViewById(R.id.amountEditText);

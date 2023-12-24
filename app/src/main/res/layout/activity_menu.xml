@@ -1,9 +1,8 @@
-<!-- menu_activity.xml -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.onlinebankingappproject.view.MenuActivity"
     android:id="@+id/menuLayout">
 
@@ -14,43 +13,117 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <Button
-        android:id="@+id/viewDashboardButton"
-        android:layout_width="wrap_content"
+    <!-- First Row -->
+    <LinearLayout
+        android:id="@+id/firstRow"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="16dp"
-        android:text="Hesapları Görüntüle"
-        android:layout_centerHorizontal="true"
-        android:onClick="viewDashBoard" />
-    <Button
-        android:id="@+id/viewCreateAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewDashboardButton"
-        android:layout_marginTop="16dp"
-        android:text="Hesap Aç"
-        android:layout_centerHorizontal="true"
-        android:onClick="viewCreateAccount" />
+        android:layout_below="@id/toolbar"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/paymentHistoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewCreateAccountButton"
-        android:layout_marginTop="16dp"
-        android:text="Ödeme Geçmişi"
-        android:layout_centerHorizontal="true"
-        android:onClick="paymentHistory" />
+        <!-- Bank Account Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
 
-    <Button
-        android:id="@+id/transferHistoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/paymentHistoryButton"
-        android:layout_marginTop="16dp"
-        android:text="Transfer Geçmişi"
-        android:layout_centerHorizontal="true"
-        android:onClick="transferHistory" />
+            <ImageView
+                android:id="@+id/bankAccountImage"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/bank_account" />
 
+            <Button
+                android:id="@+id/viewDashboardButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bankAccountImage"
+                android:layout_centerHorizontal="true"
+                android:onClick="viewDashBoard"
+                android:text="Hesapları Görüntüle" />
+        </RelativeLayout>
+
+        <!-- New Bank Account Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/newBankAccount"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/new_card" />
+
+            <Button
+                android:id="@+id/viewCreateAccountButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newBankAccount"
+                android:layout_centerHorizontal="true"
+                android:onClick="viewCreateAccount"
+                android:text="Hesap Aç" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Second Row -->
+    <LinearLayout
+        android:id="@+id/secondRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstRow"
+        android:orientation="horizontal">
+
+        <!-- Payment History Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/paymentHistoryImage"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/payment_history" />
+
+            <Button
+                android:id="@+id/paymentHistoryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/paymentHistoryImage"
+                android:layout_centerHorizontal="true"
+                android:onClick="paymentHistory"
+                android:text="Ödeme Geçmişi" />
+        </RelativeLayout>
+
+        <!-- Transaction History Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/transactionHistoryImage"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/transaction_history" />
+
+            <Button
+                android:id="@+id/transferHistoryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/transactionHistoryImage"
+                android:layout_centerHorizontal="true"
+                android:onClick="transferHistory"
+                android:text="Transfer Geçmişi" />
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

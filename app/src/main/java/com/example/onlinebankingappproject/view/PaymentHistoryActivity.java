@@ -2,6 +2,7 @@ package com.example.onlinebankingappproject.view;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
@@ -11,7 +12,7 @@ import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryMo
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentHistoryActivity extends AppCompatActivity {
+public class PaymentHistoryActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private PaymentHistoryAdapter paymentHistoryAdapter;
@@ -22,7 +23,8 @@ public class PaymentHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_history);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.recyclerView);
         apiGetTransactionService = new ApiGetTransactionService(this);
 

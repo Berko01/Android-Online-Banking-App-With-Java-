@@ -1,88 +1,257 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <!-- Hesap Bilgileri Kartı -->
+
     <androidx.cardview.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/accountInfoCardView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:contentPadding="8dp"
-        card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="8dp"
-        card_view:cardBackgroundColor="@color/colorPrimary"
-        android:layout_marginTop="8dp">
+        android:layout_width="377dp"
+        android:layout_height="172dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="19dp"
+        app:cardBackgroundColor="#918F8E"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:contentPadding="16dp">
 
-        <TextView
-            android:id="@+id/accountNumberTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Account Number"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/accountNameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Account Name"
-            android:layout_marginTop="35dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/accountTypeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Account Type"
-            android:layout_marginTop="70dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+                <!-- Sol tarafta metinleri gösteren TextView'ler -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/balanceTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="105dp"
-            android:text="Balance"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Account Number"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Account Id"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Account Name"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Account Type"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Balance"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Sağ tarafta apiden gelen değerleri gösteren TextView'ler -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/accountNumberTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/accountIdTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/accountNameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/accountTypeTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/balanceTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
-    <!-- İşlem Butonları -->
-    <Button
-        android:id="@+id/depositButton"
+    <LinearLayout
+        android:id="@+id/firstRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Para Yatırma"
         android:layout_below="@id/accountInfoCardView"
-        android:layout_marginTop="16dp"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/transferButton"
+        <!-- Bank Account Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/depositMoney"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/deposit_money" />
+
+            <Button
+                android:id="@+id/depositButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para Yatırma"
+                android:layout_below="@id/depositMoney"
+                android:layout_marginTop="16dp"/>
+        </RelativeLayout>
+
+        <!-- New Bank Account Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/transactionMoney"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/transaction_money" />
+
+            <Button
+                android:id="@+id/transferButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/transactionMoney"
+                android:layout_marginTop="16dp"
+                android:text="Para Transferi" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Second Row -->
+    <LinearLayout
+        android:id="@+id/secondRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Para Transferi"
-        android:layout_below="@id/depositButton"
-        android:layout_marginTop="8dp"/>
+        android:layout_below="@id/firstRow"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/withdrawButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Para Çekme"
-        android:layout_below="@id/transferButton"
-        android:layout_marginTop="8dp"/>
+        <!-- Payment History Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
 
-    <Button
-        android:id="@+id/paymentButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ödeme Yapma"
-        android:layout_below="@id/withdrawButton"
-        android:layout_marginTop="8dp"/>
+            <ImageView
+                android:id="@+id/withdrawMoney"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/withdraw_money" />
+
+            <Button
+                android:id="@+id/withdrawButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para Çekme"
+                android:layout_below="@id/withdrawMoney"
+                android:layout_marginTop="8dp"/>
+        </RelativeLayout>
+
+        <!-- Transaction History Image -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/paymentMoney"
+                android:layout_width="133dp"
+                android:layout_height="118dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/payment_money" />
+
+            <Button
+                android:id="@+id/paymentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ödeme Yapma"
+                android:layout_below="@id/paymentMoney"
+                android:layout_marginTop="8dp"/>
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

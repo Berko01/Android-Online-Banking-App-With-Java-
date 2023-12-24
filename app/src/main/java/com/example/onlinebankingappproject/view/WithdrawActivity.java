@@ -1,6 +1,7 @@
 package com.example.onlinebankingappproject.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ public class WithdrawActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_withdraw);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         amountEditText = findViewById(R.id.amountEditText);
         withdrawButton = findViewById(R.id.withdrawButton);
         apiPostTransactionService = new ApiPostTransactionService(this);
