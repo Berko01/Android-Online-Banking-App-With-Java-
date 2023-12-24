@@ -16,9 +16,23 @@
         android:theme="@style/Theme.OnlineBankingAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".view.DepositActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CreateAccount"
+            android:exported="false" />
+        <activity
+            android:name=".view.AccountOperationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DashboardActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".view.BaseActivity"
             android:exported="false" />

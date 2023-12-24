@@ -24,7 +24,7 @@ public class ApiPostTransactionService {
     private Context context;
     private LocalStorageManager localStorageManager;
 
-    public ApiPostTransactionService(){
+    public ApiPostTransactionService(Context context){
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
     }

@@ -1,0 +1,56 @@
+<!-- menu_activity.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.onlinebankingappproject.view.MenuActivity"
+    android:id="@+id/menuLayout">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <Button
+        android:id="@+id/viewDashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="16dp"
+        android:text="Hesapları Görüntüle"
+        android:layout_centerHorizontal="true"
+        android:onClick="viewDashBoard" />
+    <Button
+        android:id="@+id/viewCreateAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewDashboardButton"
+        android:layout_marginTop="16dp"
+        android:text="Hesap Aç"
+        android:layout_centerHorizontal="true"
+        android:onClick="viewCreateAccount" />
+
+    <Button
+        android:id="@+id/paymentHistoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewCreateAccountButton"
+        android:layout_marginTop="16dp"
+        android:text="Ödeme Geçmişi"
+        android:layout_centerHorizontal="true"
+        android:onClick="paymentHistory" />
+
+    <Button
+        android:id="@+id/transferHistoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/paymentHistoryButton"
+        android:layout_marginTop="16dp"
+        android:text="Transfer Geçmişi"
+        android:layout_centerHorizontal="true"
+        android:onClick="transferHistory" />
+
+</RelativeLayout>

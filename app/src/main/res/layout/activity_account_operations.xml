@@ -1,0 +1,88 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Hesap Bilgileri Kartı -->
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/accountInfoCardView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        card_view:contentPadding="8dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp"
+        card_view:cardBackgroundColor="@color/colorPrimary"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/accountNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Number"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/accountNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Name"
+            android:layout_marginTop="35dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/accountTypeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Type"
+            android:layout_marginTop="70dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/balanceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:text="Balance"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- İşlem Butonları -->
+    <Button
+        android:id="@+id/depositButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Para Yatırma"
+        android:layout_below="@id/accountInfoCardView"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/transferButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Para Transferi"
+        android:layout_below="@id/depositButton"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/withdrawButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Para Çekme"
+        android:layout_below="@id/transferButton"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/paymentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ödeme Yapma"
+        android:layout_below="@id/withdrawButton"
+        android:layout_marginTop="8dp"/>
+</RelativeLayout>

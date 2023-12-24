@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void navigateToDashboard() {
-        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish(); // LoginActivity'yi geri dönüş yapmasın diye kapat
     }

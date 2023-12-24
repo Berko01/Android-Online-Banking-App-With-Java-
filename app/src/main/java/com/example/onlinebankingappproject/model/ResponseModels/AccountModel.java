@@ -2,11 +2,12 @@ package com.example.onlinebankingappproject.model.ResponseModels;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class AccountModel {
+public class AccountModel implements  Serializable{
     @SerializedName("account_id")
     private  int account_id;
     @SerializedName("user_id")

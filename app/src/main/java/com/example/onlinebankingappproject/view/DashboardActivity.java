@@ -29,19 +29,12 @@ public class DashboardActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recyclerview);
-        dashboardAdapter = new DashboardAdapter();
+        dashboardAdapter = new DashboardAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(dashboardAdapter);
         totalUserBalance= findViewById(R.id.totalUserBalance);
-        Button startProcessButton = findViewById(R.id.startProcessButton);
         apiGetTransactionService = new ApiGetTransactionService(this);
-        startProcessButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Butona tıklandığında yapılacak işlemleri burada tanımla
-                getDashboardData();
-            }
-        });
+        getDashboardData();
     }
 
     private void getDashboardData() {

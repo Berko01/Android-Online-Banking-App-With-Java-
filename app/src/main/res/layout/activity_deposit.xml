@@ -1,0 +1,35 @@
+<!-- activity_deposit.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#918F8E"
+    android:id="@+id/relativelayout"
+    tools:context="com.example.onlinebankingappproject.view.DepositActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <Button
+        android:id="@+id/depositButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Para Yatırma"
+        android:layout_below="@id/accountInfoCardView"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/amountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/depositButton"
+        android:layout_marginTop="16dp"
+        android:hint="Yatırılacak Miktar"
+        android:inputType="numberDecimal" />
+
+</RelativeLayout>
