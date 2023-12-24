@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+<<<<<<< refs/remotes/origin/main
+=======
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+>>>>>>> Yeni tasarımlar eklendi
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
@@ -20,7 +25,8 @@ public class PaymentActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         beneficiaryEditText = findViewById(R.id.beneficiaryEditText);
         accountNumberEditText = findViewById(R.id.accountNumberEditText);
         referenceEditText = findViewById(R.id.referenceEditText);
