@@ -12,7 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+<<<<<<< HEAD
 >>>>>>> Yeni tasarımlar eklendi
+=======
+>>>>>>> 684fa5825f47642e1bcfe4fe1b365ecae1f087a8
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
 
