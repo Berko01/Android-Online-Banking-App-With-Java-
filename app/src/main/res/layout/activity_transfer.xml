@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#918F8E"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TransferActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,11 +12,18 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <ImageView
+        android:id="@+id/transactionMoney"
+        android:layout_width="153dp"
+        android:layout_height="137dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/transaction_money" />
     <EditText
         android:id="@+id/targetAccountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/transactionMoney"
         android:layout_marginTop="8dp"
         android:hint="Target Account"
         android:inputType="text"/>

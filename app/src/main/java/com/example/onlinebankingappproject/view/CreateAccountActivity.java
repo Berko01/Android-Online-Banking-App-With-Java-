@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
@@ -30,7 +31,8 @@ public class CreateAccountActivity extends BaseActivity {
         accountNameEditText = findViewById(R.id.accountNameEditText);
         accountTypeEditText = findViewById(R.id.accountTypeEditText);
         createAccountButton = findViewById(R.id.createAccountButton);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         apiPostTransactionService = new ApiPostTransactionService(this);
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {

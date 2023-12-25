@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
     <style name="Base.Theme.OnlineBankingAppProject" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -6,5 +7,15 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.OnlineBankingAppProject" parent="Base.Theme.OnlineBankingAppProject" />
+    <!-- Options Menu için özelleştirilmiş tema -->
+    <style name="OptionsMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item> <!-- Arka plan rengi -->
+        <item name="android:textColor">@android:color/black</item> <!-- Yazı rengi -->
+    </style>
+
+    <!-- Uygulama temasını Options Menu teması ile birleştirme -->
+    <style name="Theme.OnlineBankingAppProject" parent="Base.Theme.OnlineBankingAppProject">
+        <item name="android:popupMenuStyle">@style/OptionsMenuStyle</item>
+    </style>
+
 </resources>

@@ -38,11 +38,12 @@ public class CurrencyDisplayActivity extends AppCompatActivity {
 
                     // TextView'lere verileri yaz
                     runOnUiThread(() -> {
-                        eurRateTextView.setText("EUR Rate: " + (data.get("TRY"))/(data.get("EUR")));
-                        usdRateTextView.setText("USD Rate: " + data.get("TRY"));
-                        jpyRateTextView.setText("JPY Rate: " + (data.get("TRY"))/(data.get("JPY")));
-                        gbpRateTextView.setText("GBP Rate: " + (data.get("TRY"))/(data.get("GBP")));
-                        audRateTextView.setText("AUD Rate: " + (data.get("TRY"))/(data.get("AUD")));
+                        eurRateTextView.setText(String.format("1 EUR Karşılığı: %.2f ₺", (data.get("TRY")) / (data.get("EUR"))));
+                        usdRateTextView.setText(String.format("1 USD Karşılığı: %.2f ₺", data.get("TRY")));
+                        jpyRateTextView.setText(String.format("1 JPY Karşılığı: %.2f ₺", (data.get("TRY")) / (data.get("JPY"))));
+                        gbpRateTextView.setText(String.format("1 GBP Karşılığı: %.2f ₺", (data.get("TRY")) / (data.get("GBP"))));
+                        audRateTextView.setText(String.format("1 AUD Karşılığı: %.2f ₺", (data.get("TRY")) / (data.get("AUD"))));
+
                     });
                 })
                 .exceptionally(e -> {
