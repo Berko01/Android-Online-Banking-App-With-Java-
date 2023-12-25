@@ -6,14 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.TransactionHistoryAdapter;
-import com.example.onlinebankingappproject.api.ApiAuthService;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryResponseModel;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class TransactionHistoryActivity extends AppCompatActivity {
 

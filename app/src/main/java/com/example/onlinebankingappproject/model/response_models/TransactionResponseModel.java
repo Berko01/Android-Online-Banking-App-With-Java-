@@ -1,5 +1,6 @@
-package com.example.onlinebankingappproject.model.ResponseModels;
+package com.example.onlinebankingappproject.model.response_models;
 
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

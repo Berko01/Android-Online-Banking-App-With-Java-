@@ -8,8 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
+import com.example.onlinebankingappproject.model.base_models.PaymentHistoryModel;
 
 import java.util.ArrayList;
 import java.util.List;

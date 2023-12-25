@@ -1,21 +1,20 @@
 package com.example.onlinebankingappproject.api;
 
-import com.example.onlinebankingappproject.model.RequestModels.CreateAccountRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.DepositRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.PaymentRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.RegisterRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.TransferRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.WithdrawRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
-import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
-import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.RegisterResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
+import com.example.onlinebankingappproject.model.request_models.CreateAccountRequestModel;
+import com.example.onlinebankingappproject.model.request_models.DepositRequestModel;
+import com.example.onlinebankingappproject.model.request_models.PaymentRequestModel;
+import com.example.onlinebankingappproject.model.request_models.RegisterRequestModel;
+import com.example.onlinebankingappproject.model.request_models.TransferRequestModel;
+import com.example.onlinebankingappproject.model.request_models.WithdrawRequestModel;
+import com.example.onlinebankingappproject.model.base_models.AccessTokenModel;
+import com.example.onlinebankingappproject.model.request_models.LoginRequestModel;
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
+import com.example.onlinebankingappproject.model.response_models.DashboardResponseModel;
+import com.example.onlinebankingappproject.model.response_models.PaymentHistoryResponseModel;
+import com.example.onlinebankingappproject.model.response_models.RegisterResponseModel;
+import com.example.onlinebankingappproject.model.base_models.TransactionHistoryModel;
+import com.example.onlinebankingappproject.model.response_models.TransactionHistoryResponseModel;
+import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
 
 import java.util.List;
 

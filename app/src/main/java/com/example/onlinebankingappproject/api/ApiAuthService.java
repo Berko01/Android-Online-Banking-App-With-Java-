@@ -2,11 +2,14 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
-import com.example.onlinebankingappproject.model.RequestModels.RegisterRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
-import com.example.onlinebankingappproject.model.RequestModels.LoginRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.RegisterResponseModel;
+import com.example.onlinebankingappproject.model.request_models.RegisterRequestModel;
+import com.example.onlinebankingappproject.model.base_models.AccessTokenModel;
+import com.example.onlinebankingappproject.model.request_models.LoginRequestModel;
+import com.example.onlinebankingappproject.model.response_models.RegisterResponseModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
+
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +54,10 @@ public class ApiAuthService {
 
                     // Access token'ı SharedPreferences'a kaydet
                     localStorageManager.saveAccessToken(responseData.getAccessToken());
+
+
+
+
 
 
 

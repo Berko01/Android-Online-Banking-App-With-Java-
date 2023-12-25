@@ -2,7 +2,6 @@ package com.example.onlinebankingappproject.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.widget.TextView;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +10,6 @@ import android.widget.EditText;
 import android.content.Intent;
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiAuthService;
-import com.example.onlinebankingappproject.api.ApiGetTransactionService;
-import com.example.onlinebankingappproject.model.ResponseModels.AccessTokenModel;
-import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
-
-import retrofit2.Callback;
 
 public class LoginActivity extends AppCompatActivity {
 

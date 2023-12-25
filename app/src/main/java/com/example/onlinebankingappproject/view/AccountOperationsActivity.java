@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
-import com.example.onlinebankingappproject.model.ResponseModels.SerializableAccountModel;
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
+import com.example.onlinebankingappproject.model.base_models.SerializableAccountModel;
 
 public class AccountOperationsActivity extends AppCompatActivity {
 

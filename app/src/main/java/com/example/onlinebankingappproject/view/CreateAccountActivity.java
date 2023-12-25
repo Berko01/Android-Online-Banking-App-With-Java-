@@ -8,13 +8,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiGetTransactionService;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
-import com.example.onlinebankingappproject.model.RequestModels.CreateAccountRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
 
 import java.util.concurrent.CompletableFuture;
 

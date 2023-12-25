@@ -1,4 +1,4 @@
-package com.example.onlinebankingappproject.model.RequestModels;
+package com.example.onlinebankingappproject.model.request_models;
 
 import com.google.gson.annotations.SerializedName;
 

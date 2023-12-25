@@ -2,17 +2,15 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
-import com.example.onlinebankingappproject.model.RequestModels.CreateAccountRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.DepositRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.PaymentRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.TransferRequestModel;
-import com.example.onlinebankingappproject.model.RequestModels.WithdrawRequestModel;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionResponseModel;
+import com.example.onlinebankingappproject.model.request_models.CreateAccountRequestModel;
+import com.example.onlinebankingappproject.model.request_models.DepositRequestModel;
+import com.example.onlinebankingappproject.model.request_models.PaymentRequestModel;
+import com.example.onlinebankingappproject.model.request_models.TransferRequestModel;
+import com.example.onlinebankingappproject.model.request_models.WithdrawRequestModel;
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
+import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;

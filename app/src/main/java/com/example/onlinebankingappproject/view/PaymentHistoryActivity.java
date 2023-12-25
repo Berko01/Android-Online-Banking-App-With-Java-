@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.PaymentHistoryAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PaymentHistoryActivity extends AppCompatActivity {
 

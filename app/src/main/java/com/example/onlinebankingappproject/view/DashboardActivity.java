@@ -1,7 +1,5 @@
 package com.example.onlinebankingappproject.view;// DashboardActivity.java
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -10,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.DashboardAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
-import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
-import com.example.onlinebankingappproject.view.BaseActivity;
 
 public class DashboardActivity extends BaseActivity {
 

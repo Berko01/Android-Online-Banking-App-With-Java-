@@ -1,5 +1,4 @@
 package com.example.onlinebankingappproject.adapters;// DashboardAdapter.java
-import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.model.ResponseModels.AccountModel;
-import com.example.onlinebankingappproject.model.ResponseModels.SerializableAccountModel;
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
+import com.example.onlinebankingappproject.model.base_models.SerializableAccountModel;
 import com.example.onlinebankingappproject.view.AccountOperationsActivity;
-import com.example.onlinebankingappproject.view.DashboardActivity;
 
 import java.util.ArrayList;
 import java.util.List;

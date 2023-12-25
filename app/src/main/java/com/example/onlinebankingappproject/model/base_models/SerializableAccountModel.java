@@ -1,4 +1,6 @@
-package com.example.onlinebankingappproject.model.ResponseModels;
+package com.example.onlinebankingappproject.model.base_models;
+
+import com.example.onlinebankingappproject.model.base_models.AccountModel;
 
 import java.io.Serializable;
 

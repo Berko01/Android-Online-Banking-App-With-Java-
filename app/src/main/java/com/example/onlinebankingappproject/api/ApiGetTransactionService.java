@@ -2,21 +2,18 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
-import com.example.onlinebankingappproject.model.ResponseModels.DashboardResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryModel;
-import com.example.onlinebankingappproject.model.ResponseModels.PaymentHistoryResponseModel;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryModel;
+import com.example.onlinebankingappproject.model.response_models.DashboardResponseModel;
+import com.example.onlinebankingappproject.model.response_models.PaymentHistoryResponseModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
-import com.example.onlinebankingappproject.model.ResponseModels.TransactionHistoryResponseModel;
+import com.example.onlinebankingappproject.model.response_models.TransactionHistoryResponseModel;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import java.util.concurrent.CompletableFuture;
+
 public class ApiGetTransactionService {
     private Context context;
     private LocalStorageManager localStorageManager;
