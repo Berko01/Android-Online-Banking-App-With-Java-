@@ -16,6 +16,9 @@
         android:theme="@style/Theme.OnlineBankingAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".view.CurrencyDisplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.TransactionHistoryActivity"
             android:exported="false"
             android:label="Transaction History" />

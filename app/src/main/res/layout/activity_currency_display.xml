@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="#918F8E"
+    tools:context=".view.CurrencyDisplayActivity">
+
+    <RelativeLayout
+        android:id="@+id/eurRateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/eurImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/eur_icon" />
+
+        <TextView
+            android:id="@+id/eurRateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EUR Rate: "
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/eurImageView"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/usdRateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_below="@id/eurRateLayout"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/usdImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/usd_icon"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/usdRateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USD Rate: "
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/usdImageView"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </RelativeLayout>
+
+    <!-- JPY Rate Layout -->
+    <RelativeLayout
+        android:id="@+id/jpyRateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_below="@id/usdRateLayout"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/jpyImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/jpy_icon"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/jpyRateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JPY Rate: "
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/jpyImageView"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </RelativeLayout>
+
+    <!-- GBP Rate Layout -->
+    <RelativeLayout
+        android:id="@+id/gbpRateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_below="@id/jpyRateLayout"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/gbpImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/gbp_icon"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/gbpRateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GBP Rate: "
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/gbpImageView"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </RelativeLayout>
+
+    <!-- AUD Rate Layout -->
+    <RelativeLayout
+        android:id="@+id/audRateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_below="@id/gbpRateLayout"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/audImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/aud_icon"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/audRateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AUD Rate: "
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/audImageView"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

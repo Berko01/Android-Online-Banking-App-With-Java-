@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@android:color/white"
-tools:context=".view.LoginActivity">
-
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".view.LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="247dp"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo" />
 
@@ -52,6 +48,7 @@ tools:context=".view.LoginActivity">
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/buttonLogin"
         android:text="Giriş Yap"
@@ -62,28 +59,43 @@ tools:context=".view.LoginActivity">
         app:backgroundTint="@null"
         android:textColor="@android:color/white"
         android:layout_margin="30dp"
-        android:layout_below="@id/editTextPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:text="Or"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="30dp"
-        android:textSize="14sp"
-        android:textAlignment="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Or"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/sign_up_text"
         android:text="@string/sign_up"
         android:textColor="@android:color/black"
-        android:layout_margin="30dp"
+        android:layout_margin="5dp"
         android:textSize="16sp"
         android:textAlignment="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content" />
 
-</ScrollView>
+    <ImageButton
+        android:id="@+id/financialDataButton"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:onClick="openFinancialData"
+        android:src="@drawable/financial_data"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finansal Veriler"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:gravity="center" />
+</LinearLayout>

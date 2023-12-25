@@ -54,4 +54,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // LoginActivity'yi geri dönüş yapmasın diye kapat
     }
+    public void openFinancialData(View view) {
+        Intent intent = new Intent(this, CurrencyDisplayActivity.class);
+        startActivity(intent);
+    }
+
 }

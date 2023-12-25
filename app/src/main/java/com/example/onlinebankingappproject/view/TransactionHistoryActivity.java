@@ -9,13 +9,10 @@ import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.TransactionHistoryAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
->>>>>>> 684fa5825f47642e1bcfe4fe1b365ecae1f087a8
 public class TransactionHistoryActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
