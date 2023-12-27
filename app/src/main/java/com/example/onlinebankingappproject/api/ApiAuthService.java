@@ -22,7 +22,6 @@ public class ApiAuthService {
     private Context context;
     private LocalStorageManager localStorageManager;
 
-    // Constructor'a Context ekleyin
     public ApiAuthService(Context context) {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
@@ -35,11 +34,9 @@ public class ApiAuthService {
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
 
-
-
-
         // Login Request modeli oluştur
         LoginRequestModel loginRequestModel = new LoginRequestModel(email, password);
+
         // API'ye POST isteği gönder
         Call<AccessTokenModel> call = apiService.login(loginRequestModel);
 
@@ -55,11 +52,6 @@ public class ApiAuthService {
 
                     // Access token'ı SharedPreferences'a kaydet
                     localStorageManager.saveAccessToken(responseData.getAccessToken());
-
-
-
-
-
 
 
                 } else {
@@ -86,7 +78,6 @@ public class ApiAuthService {
         });
     }
 
-
     public void register(String first_name, String last_name, String email, String password) {
         // Retrofit istemcisini oluştur
         Retrofit retrofit = ApiClient.getClient();
@@ -96,6 +87,7 @@ public class ApiAuthService {
 
         // Login Request modeli oluştur
         RegisterRequestModel registerRequestModel = new RegisterRequestModel(first_name, last_name, email, password);
+
         // API'ye POST isteği gönder
         Call<RegisterResponseModel> call = apiService.register(registerRequestModel);
 
@@ -126,7 +118,6 @@ public class ApiAuthService {
             }
         });
     }
-
 
     public void logout() {
         // Retrofit istemcisini oluştur

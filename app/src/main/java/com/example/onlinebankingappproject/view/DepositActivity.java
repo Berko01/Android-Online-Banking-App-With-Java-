@@ -10,16 +10,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
+import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
+
+import java.util.concurrent.CompletableFuture;
 
 public class DepositActivity extends BaseActivity {
 
     private EditText amountEditText;
     private Button depositButton;
     ApiPostTransactionService apiPostTransactionService;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class DepositActivity extends BaseActivity {
                 int accountId = getAccountId(); // Hesap ID'sini alacak bir metodunuzun olduğunu varsayalım
 
                 // Para yatırma işlemi
-                depositTransaction(depositAmount, accountId);
+                performDeposit(depositAmount, accountId);
             }
         });
     }
@@ -51,11 +52,22 @@ public class DepositActivity extends BaseActivity {
         return intent.getIntExtra("account_id", -1); // -1, geçerli bir account_id alınamadığında varsayılan değer
     }
 
+    private void performDeposit(String depositAmount, int accountId) {
+        CompletableFuture<TransactionResponseModel> future = apiPostTransactionService.depositTransaction(depositAmount, accountId);
 
-    private void depositTransaction(String depositAmount, int accountId) {
-        apiPostTransactionService.depositTransaction(depositAmount,accountId);
-        Toast.makeText(DepositActivity.this, "Para Yatırma işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
+        future.whenComplete((result, exception) -> {
+            runOnUiThread(() -> {
+                if (exception == null) {
+                    // İşlem başarılı ise
+                    Toast.makeText(DepositActivity.this, "Para yatırma işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DepositActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                } else {
+                    // İşlem başarısız ise
+                    exception.printStackTrace();
+                    Toast.makeText(DepositActivity.this, "Para yatırma işlemi başarısız oldu.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
     }
 }

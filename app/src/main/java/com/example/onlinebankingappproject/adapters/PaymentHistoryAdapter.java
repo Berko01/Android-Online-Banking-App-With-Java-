@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.model.base_models.PaymentHistoryModel;
 
@@ -15,13 +17,15 @@ import java.util.List;
 
 public class PaymentHistoryAdapter extends RecyclerView.Adapter<PaymentHistoryAdapter.PaymentViewHolder> {
 
-    private List<PaymentHistoryModel> paymentHistoryList =new ArrayList<>();;
+    private List<PaymentHistoryModel> paymentHistoryList = new ArrayList<>();
+    ;
     private Context context;
 
     public PaymentHistoryAdapter(Context context) {
         this.context = context;
 
     }
+
     public void setData(List<PaymentHistoryModel> payments) {
         paymentHistoryList.clear();
         paymentHistoryList.addAll(payments);
@@ -57,6 +61,7 @@ public class PaymentHistoryAdapter extends RecyclerView.Adapter<PaymentHistoryAd
             referenceNoTextView = itemView.findViewById(R.id.referenceNoTextView);
             statusTextView = itemView.findViewById(R.id.statusTextView);
         }
+
         public void bind(PaymentHistoryModel paymentHistoryModel) {
             beneficiaryTextView.setText(paymentHistoryModel.getBeneficiary());
             accountNumberTextView.setText(paymentHistoryModel.getBeneficiaryAccNo());

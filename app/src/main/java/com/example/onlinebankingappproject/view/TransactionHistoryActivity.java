@@ -1,10 +1,12 @@
 package com.example.onlinebankingappproject.view;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.TransactionHistoryAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
@@ -14,8 +16,6 @@ public class TransactionHistoryActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private TransactionHistoryAdapter adapter;
-
-
 
     private ApiGetTransactionService apiGetTransactionService;
 
@@ -30,8 +30,6 @@ public class TransactionHistoryActivity extends BaseActivity {
         // Eğer gerçek bir API üzerinden veri alıyorsanız, bu kısmı uygun şekilde güncelleyin.
 
 
-
-
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new TransactionHistoryAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -39,7 +37,6 @@ public class TransactionHistoryActivity extends BaseActivity {
         getTransactionHistoryData();
         // Adapter'a verileri set et
     }
-
 
 
     private void getTransactionHistoryData() {

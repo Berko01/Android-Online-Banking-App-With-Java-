@@ -10,7 +10,6 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface ExchangeRatesApiServiceInterface {
-
     @GET("v1/latest")
     Call<CurrencyResponse> getLatestCurrencies(
             @Query("apikey") String apiKey,

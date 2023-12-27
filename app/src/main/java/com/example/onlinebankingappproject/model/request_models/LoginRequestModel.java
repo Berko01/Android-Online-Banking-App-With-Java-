@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 public class LoginRequestModel {
     @SerializedName("email")
     private String email;
-
     @SerializedName("password")
     private String password;
 
@@ -14,5 +13,5 @@ public class LoginRequestModel {
         this.password = password;
     }
 
-    // constructor, getter ve setter metodları
+
 }

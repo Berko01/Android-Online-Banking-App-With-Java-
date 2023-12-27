@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiAuthService;
 
@@ -16,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
                 // API servisini oluştur
-                apiAuthService.login(email,password);
+                apiAuthService.login(email, password);
 
 
                 navigateToDashboard();
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // LoginActivity'yi geri dönüş yapmasın diye kapat
     }
+
     public void openFinancialData(View view) {
         Intent intent = new Intent(this, CurrencyDisplayActivity.class);
         startActivity(intent);

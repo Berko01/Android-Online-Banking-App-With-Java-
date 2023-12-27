@@ -6,10 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
+import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
+
+import java.util.concurrent.CompletableFuture;
 
 public class PaymentActivity extends BaseActivity {
 
@@ -34,15 +39,17 @@ public class PaymentActivity extends BaseActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makePayment(accountId);
+                performPayment(accountId);
             }
         });
     }
+
     private int getAccountId() {
         Intent intent = getIntent();
         return intent.getIntExtra("account_id", -1); // -1, geçerli bir account_id alınamadığında varsayılan değer
     }
-    private void makePayment(int accountId) {
+
+    private void performPayment(int accountId) {
         String beneficiary = beneficiaryEditText.getText().toString().trim();
         String accountNumber = accountNumberEditText.getText().toString().trim();
         String reference = referenceEditText.getText().toString().trim();
@@ -53,9 +60,21 @@ public class PaymentActivity extends BaseActivity {
             return;
         }
 
-        apiPostTransactionService.paymentTransaction(beneficiary,accountNumber,String.valueOf(accountId),reference,paymentAmount);
-        Toast.makeText(PaymentActivity.this, "Ödeme işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
+        CompletableFuture<TransactionResponseModel> future = apiPostTransactionService.paymentTransaction(beneficiary, accountNumber, String.valueOf(accountId), reference, paymentAmount);
+
+        future.whenComplete((result, exception) -> {
+            runOnUiThread(() -> {
+                if (exception == null) {
+                    // İşlem başarılı ise
+                    Toast.makeText(PaymentActivity.this, "Ödeme işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(PaymentActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                } else {
+                    // İşlem başarısız ise
+                    exception.printStackTrace();
+                    Toast.makeText(PaymentActivity.this, "Ödeme işlemi başarısız oldu.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
     }
 }

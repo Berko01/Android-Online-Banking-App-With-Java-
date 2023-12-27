@@ -3,7 +3,6 @@ package com.example.onlinebankingappproject.model.base_models;
 import com.google.gson.annotations.SerializedName;
 
 public class AccessTokenModel {
-
     @SerializedName("access_token")
     private String accessToken;
 

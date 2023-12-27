@@ -48,6 +48,7 @@ public class MenuActivity extends BaseActivity {
         Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }
+
     // Hesap Açma sayfasına yönlendirme metod
     public void viewCreateAccount(View view) {
         try {
