@@ -24,6 +24,7 @@ public class WithdrawActivity extends BaseActivity {
         setContentView(R.layout.activity_withdraw);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         amountEditText = findViewById(R.id.amountEditText);
         withdrawButton = findViewById(R.id.withdrawButton);
         apiPostTransactionService = new ApiPostTransactionService(this);

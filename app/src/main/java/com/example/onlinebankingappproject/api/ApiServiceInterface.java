@@ -35,7 +35,7 @@ public interface ApiServiceInterface {
     @POST("http://10.0.2.2:8070/transact/deposit")
     Call<TransactionResponseModel> depositTransaction(@Header("Authorization") String accessToken, @Body DepositRequestModel depositRequestModel);
 
-    @POST("http://10.0.2.2:8070/transact/transfer?")
+    @POST("http://10.0.2.2:8070/transact/transfer")
     Call<TransactionResponseModel> transferTransaction(@Header("Authorization") String accessToken, @Body TransferRequestModel transferRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/withdraw")

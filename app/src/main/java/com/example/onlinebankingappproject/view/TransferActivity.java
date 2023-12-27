@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiPostTransactionService;
 
@@ -26,13 +27,17 @@ public class TransferActivity extends BaseActivity {
         setContentView(R.layout.activity_transfer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        apiPostTransactionService = new ApiPostTransactionService(this);
+
         targetAccountEditText = findViewById(R.id.targetAccountEditText);
         amountEditText = findViewById(R.id.amountEditText);
         transferButton = findViewById(R.id.transferButton);
-        int accountId = getAccountId(); // Hesap ID'sini alacak bir metodunuzun olduğunu varsayalım
+
+        apiPostTransactionService = new ApiPostTransactionService(this);
 
         transferButton.setOnClickListener(new View.OnClickListener() {
+            int accountId = getAccountId(); // Hesap ID'sini alacak bir metodunuzun olduğunu varsayalım
+
+
             @Override
             public void onClick(View v) {
                 performTransfer(accountId);
@@ -41,7 +46,7 @@ public class TransferActivity extends BaseActivity {
     }
     private int getAccountId() {
         Intent intent = getIntent();
-        return intent.getIntExtra("account_id", -1); // -1, geçerli bir account_id alınamadığında varsayılan değer
+        return intent.getIntExtra("sourceAccount", -1); // -1, geçerli bir account_id alınamadığında varsayılan değer
     }
     private void performTransfer(int sourceAccount) {
         String targetAccount = targetAccountEditText.getText().toString().trim();
@@ -53,6 +58,8 @@ public class TransferActivity extends BaseActivity {
         }
 
         apiPostTransactionService.transferTransaction(String.valueOf(sourceAccount),targetAccount,amount);
+
+
         Toast.makeText(TransferActivity.this, "Para transfer işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);

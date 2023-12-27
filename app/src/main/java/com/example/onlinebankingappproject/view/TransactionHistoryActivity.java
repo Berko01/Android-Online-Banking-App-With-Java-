@@ -9,9 +9,6 @@ import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.TransactionHistoryAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class TransactionHistoryActivity extends BaseActivity {
 

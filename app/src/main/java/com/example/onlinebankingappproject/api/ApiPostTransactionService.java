@@ -126,7 +126,7 @@ public class ApiPostTransactionService {
 
         // Access token'ı SharedPreferences veya başka bir kaynaktan al
         String accessToken = localStorageManager.getAccessToken();
-
+        System.out.println(sourceAccount + " " + targetAccount + " " + amount);
         // Login Request modeli oluştur
         TransferRequestModel transferRequestModel = new TransferRequestModel(sourceAccount, targetAccount,amount);
         // API'ye POST isteği gönder

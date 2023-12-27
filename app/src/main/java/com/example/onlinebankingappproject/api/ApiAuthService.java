@@ -2,6 +2,7 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
+import com.example.onlinebankingappproject.Utilities.TokenUtil.ApiAuthException;
 import com.example.onlinebankingappproject.model.request_models.RegisterRequestModel;
 import com.example.onlinebankingappproject.model.base_models.AccessTokenModel;
 import com.example.onlinebankingappproject.model.request_models.LoginRequestModel;
@@ -65,6 +66,9 @@ public class ApiAuthService {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
+                        // Hata durumunda özel exception fırlat
+                        throw new ApiAuthException("Login işlemi başarısız oldu.");
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -74,7 +78,10 @@ public class ApiAuthService {
             @Override
             public void onFailure(Call<AccessTokenModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
+
                 System.err.println("Request Failure: " + t.getMessage());
+                // Hata durumunda özel exception fırlat
+                throw new ApiAuthException("Login işlemi başarısız oldu.");
             }
         });
     }
@@ -105,6 +112,7 @@ public class ApiAuthService {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

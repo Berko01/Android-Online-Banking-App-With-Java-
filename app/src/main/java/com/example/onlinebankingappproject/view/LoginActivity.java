@@ -44,11 +44,15 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString();
                 // API servisini oluştur
                 apiAuthService.login(email,password);
+
+
                 navigateToDashboard();
             }
 
         });
     }
+
+
     private void navigateToDashboard() {
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
