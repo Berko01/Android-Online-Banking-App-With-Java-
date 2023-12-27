@@ -1,3 +1,4 @@
+// RegisterActivity.java
 package com.example.onlinebankingappproject.view;
 
 import android.content.Intent;
@@ -11,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.ApiAuthService;
-import com.example.onlinebankingappproject.view.LoginActivity;
+import com.example.onlinebankingappproject.model.response_models.RegisterResponseModel;
+
+import java.util.concurrent.CompletableFuture;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailEditText;
     private EditText passwordEditText;
     private Button registerButton;
+    private ApiAuthService apiAuthService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +37,10 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.editTextPassword);
         registerButton = findViewById(R.id.submit_button);
 
+        // API servisi nesnesini oluştur
+        apiAuthService = new ApiAuthService(this);
+
         // Kayıt ol butonuna tıklanınca çağrılacak fonksiyonu belirleme
-        ApiAuthService apiAuthService = new ApiAuthService(this);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,25 +50,27 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                // API servisini oluştur
-                if(firstName.equals("")&&lastName.equals("")&&email.equals("")&&password.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Hiçbir alan boş bırakılamaz!!!", Toast.LENGTH_SHORT).show();
-                }else{
-                    apiAuthService.register(firstName, lastName, email, password);
+                // Perform registration asynchronously
+                CompletableFuture<RegisterResponseModel> registrationFuture = apiAuthService.register(firstName, lastName, email, password);
 
-                    if (true) {
-                        // Kayıt başarılı ise kullanıcıyı giriş ekranına yönlendir
+                // Handle the result or exception when the registration operation completes
+                registrationFuture.whenComplete((registerResponseModel, throwable) -> {
+                    if (throwable == null) {
+                        // Registration successful, handle the response if needed
+                        // For example, you can display a success message
                         Toast.makeText(RegisterActivity.this, "Kayıt başarılı. Mail adresinizden hesabı onaylamayı unutmayın Giriş yapabilirsiniz.", Toast.LENGTH_SHORT).show();
+
+                        // Navigate to the login screen
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
-                        finish(); // Bu satır, geri tuşu ile kayıt ekranına dönülmesini engeller
+                        finish(); // This line prevents returning to the registration screen with the back button
                     } else {
-                        // Kayıt başarısız ise kullanıcıyı bilgilendir
+                        // Registration failed, handle the exception (display an error message, etc.)
+                        // For example, you can display an error message
                         Toast.makeText(RegisterActivity.this, "Kayıt başarısız. Lütfen tekrar deneyin.", Toast.LENGTH_SHORT).show();
+                        throwable.printStackTrace();
                     }
-                }
-                // Register işlemini gerçekleştir
-
+                });
             }
         });
     }
