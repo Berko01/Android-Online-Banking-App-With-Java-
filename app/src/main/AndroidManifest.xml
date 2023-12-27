@@ -41,9 +41,6 @@
             android:name=".view.CreateAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".view.CreateAccount"
-            android:exported="false" />
-        <activity
             android:name=".view.AccountOperationsActivity"
             android:exported="false" />
         <activity

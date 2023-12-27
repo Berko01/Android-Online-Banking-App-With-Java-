@@ -33,7 +33,10 @@ public class ApiAuthService {
 
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         // Login Request modeli oluştur
         LoginRequestModel loginRequestModel = new LoginRequestModel(email, password);
 
@@ -52,11 +55,15 @@ public class ApiAuthService {
 
                     // Access token'ı SharedPreferences'a kaydet
                     localStorageManager.saveAccessToken(responseData.getAccessToken());
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
+                        localStorageManager.saveAccessToken(null);
                         System.err.println("Error Response: " + errorBody);
                         // Hata durumunda özel exception fırlat
                         throw new ApiAuthException("Login işlemi başarısız oldu.");

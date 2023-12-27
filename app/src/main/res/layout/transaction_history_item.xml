@@ -11,7 +11,7 @@
         android:id="@+id/transaction_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transaction Id:"
+        android:text="İşlem Kimliği:"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/accountNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account Number:"
+        android:text="Hesap Numarası:"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/account_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account Id:"
+        android:text="Hesap Kimliği:"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -35,7 +35,7 @@
         android:id="@+id/transactionTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transaction Type"
+        android:text="İşlem Türü"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -43,37 +43,36 @@
         android:id="@+id/amountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amount: "
+        android:text="Miktar: "
         android:textColor="@android:color/black"
         android:textSize="16sp" />
     <TextView
         android:id="@+id/sourceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Source: Online"
+        android:text="Kaynak: Online"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: "
+        android:text="Durum: "
         android:textColor="@android:color/black"
         android:textSize="16sp" />
     <TextView
         android:id="@+id/reasonCodeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reason Code: "
+        android:text="Sonuc Kodu: "
         android:textColor="@android:color/black"
         android:textSize="16sp" />
     <TextView
         android:id="@+id/createdAtTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Created At: "
+        android:text="Oluşturulma Tarihi: "
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
 </LinearLayout>
-

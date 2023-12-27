@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/transactionMoney"
         android:layout_marginTop="8dp"
-        android:hint="Target Account"
+        android:hint="Hedef Hesap"
         android:inputType="text"/>
 
     <EditText
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/targetAccountEditText"
         android:layout_marginTop="8dp"
-        android:hint="Amount"
+        android:hint="Miktar"
         android:inputType="numberDecimal"/>
 
     <Button

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/paymentMoney"
         android:layout_marginTop="16dp"
-        android:hint="Beneficiary"
+        android:hint="Alacaklı"
         android:inputType="text"/>
 
     <EditText
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/beneficiaryEditText"
         android:layout_marginTop="8dp"
-        android:hint="Account Number"
+        android:hint="Hesap Numarası"
         android:inputType="text"/>
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/accountNumberEditText"
         android:layout_marginTop="8dp"
-        android:hint="Reference"
+        android:hint="Aciklama"
         android:inputType="text"/>
 
     <EditText
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/referenceEditText"
         android:layout_marginTop="8dp"
-        android:hint="Payment Amount"
+        android:hint="Ödeme Miktarı"
         android:inputType="numberDecimal"/>
 
     <Button

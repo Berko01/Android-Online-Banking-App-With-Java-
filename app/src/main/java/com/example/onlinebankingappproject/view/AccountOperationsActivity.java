@@ -16,7 +16,7 @@ import com.example.onlinebankingappproject.model.base_models.SerializableAccount
 
 public class AccountOperationsActivity extends BaseActivity {
 
-    private TextView accountNumberTextView, accountNameTextView, accountTypeTextView, balanceTextView;
+    private TextView accountNumberTextView, accountNameTextView, accountTypeTextView, balanceTextView,accountIdTextView;
     private CardView accountInfoCardView;
     private AccountModel selectedAccount;
     private Button depositButton, transferButton, withdrawButton, paymentButton;
@@ -33,6 +33,7 @@ public class AccountOperationsActivity extends BaseActivity {
         accountNameTextView = findViewById(R.id.accountNameTextView);
         accountTypeTextView = findViewById(R.id.accountTypeTextView);
         balanceTextView = findViewById(R.id.balanceTextView);
+        accountIdTextView=findViewById(R.id.accountIdTextView);
 
         depositButton = findViewById(R.id.depositButton);
         transferButton = findViewById(R.id.transferButton);
@@ -45,7 +46,7 @@ public class AccountOperationsActivity extends BaseActivity {
         AccountModel selectedAccount = serializableAccountModel.getAccountModel();
 
         // Hesap bilgilerini gösterme
-        showAccountInfo(selectedAccount.getAccount_number(), selectedAccount.getAccount_name(), selectedAccount.getAccount_type(), selectedAccount.getBalance().toString());
+        showAccountInfo(selectedAccount.getAccount_number(), selectedAccount.getAccount_name(), selectedAccount.getAccount_type(), selectedAccount.getBalance().toString(),String.valueOf(selectedAccount.getAccount_id()));
 
         // İşlem butonlarına tıklama olaylarını ayarlama
         depositButton.setOnClickListener(new View.OnClickListener() {
@@ -85,10 +86,11 @@ public class AccountOperationsActivity extends BaseActivity {
     }
 
     // Hesap bilgilerini gösteren yardımcı metot
-    private void showAccountInfo(String accountNumber, String accountName, String accountType, String balance) {
+    private void showAccountInfo(String accountNumber, String accountName, String accountType, String balance,String id) {
         accountNumberTextView.setText(accountNumber);
         accountNameTextView.setText(accountName);
         accountTypeTextView.setText(accountType);
         balanceTextView.setText(balance);
+        accountIdTextView.setText(id);
     }
 }

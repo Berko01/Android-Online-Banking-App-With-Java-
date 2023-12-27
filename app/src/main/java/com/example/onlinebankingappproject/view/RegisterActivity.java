@@ -45,20 +45,24 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
 
                 // API servisini oluştur
+                if(firstName.equals("")&&lastName.equals("")&&email.equals("")&&password.equals("")){
+                    Toast.makeText(RegisterActivity.this, "Hiçbir alan boş bırakılamaz!!!", Toast.LENGTH_SHORT).show();
+                }else{
+                    apiAuthService.register(firstName, lastName, email, password);
 
-                // Register işlemini gerçekleştir
-                apiAuthService.register(firstName, lastName, email, password);
-
-                if (true) {
-                    // Kayıt başarılı ise kullanıcıyı giriş ekranına yönlendir
-                    Toast.makeText(RegisterActivity.this, "Kayıt başarılı. Mail adresinizden hesabı onaylamayı unutmayın Giriş yapabilirsiniz.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish(); // Bu satır, geri tuşu ile kayıt ekranına dönülmesini engeller
-                } else {
-                    // Kayıt başarısız ise kullanıcıyı bilgilendir
-                    Toast.makeText(RegisterActivity.this, "Kayıt başarısız. Lütfen tekrar deneyin.", Toast.LENGTH_SHORT).show();
+                    if (true) {
+                        // Kayıt başarılı ise kullanıcıyı giriş ekranına yönlendir
+                        Toast.makeText(RegisterActivity.this, "Kayıt başarılı. Mail adresinizden hesabı onaylamayı unutmayın Giriş yapabilirsiniz.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish(); // Bu satır, geri tuşu ile kayıt ekranına dönülmesini engeller
+                    } else {
+                        // Kayıt başarısız ise kullanıcıyı bilgilendir
+                        Toast.makeText(RegisterActivity.this, "Kayıt başarısız. Lütfen tekrar deneyin.", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                // Register işlemini gerçekleştir
+
             }
         });
     }

@@ -1,7 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Base.Theme.OnlineBankingAppProject" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/black</item>  <item name="android:popupMenuStyle">@style/OptionsMenuStyle.Night</item>
     </style>
+
+    <style name="OptionsMenuStyle.Night" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/darkerGray</item>  <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

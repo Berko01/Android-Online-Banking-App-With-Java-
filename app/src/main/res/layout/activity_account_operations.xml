@@ -46,7 +46,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Account Number"
+                        android:text="Hesap Numarası"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -54,16 +54,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Account Id"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Account Name"
+                        android:text="Hesap ID"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -72,7 +63,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Account Type"
+                        android:text="Hesap Adı"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -81,7 +72,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Balance"
+                        android:text="Hesap Türü"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Bakiye"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -155,7 +155,7 @@
         android:layout_below="@id/accountInfoCardView"
         android:orientation="horizontal">
 
-        <!-- Bank Account Image -->
+        <!-- Banka Hesabı Resmi -->
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                 android:layout_marginTop="16dp"/>
         </RelativeLayout>
 
-        <!-- New Bank Account Image -->
+        <!-- Yeni Banka Hesabı Resmi -->
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <!-- Second Row -->
+    <!-- İkinci Sıra -->
     <LinearLayout
         android:id="@+id/secondRow"
         android:layout_width="match_parent"
@@ -210,7 +210,7 @@
         android:layout_below="@id/firstRow"
         android:orientation="horizontal">
 
-        <!-- Payment History Image -->
+        <!-- Ödeme Geçmişi Resmi -->
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -233,7 +233,7 @@
                 android:layout_marginTop="8dp"/>
         </RelativeLayout>
 
-        <!-- Transaction History Image -->
+        <!-- İşlem Geçmişi Resmi -->
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
