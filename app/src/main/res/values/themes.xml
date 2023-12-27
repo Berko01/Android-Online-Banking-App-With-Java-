@@ -2,13 +2,13 @@
 
     <style name="Base.Theme.OnlineBankingAppProject" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-    </style>
-
-    <style name="OptionsMenuStyle" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:popupBackground">@color/darkerGray</item>  <item name="android:textColor">@android:color/white</item>     </style>
-
-    <style name="Theme.OnlineBankingAppProject" parent="Base.Theme.OnlineBankingAppProject">
+        <item name="android:textColorPrimary">@color/black</item>
         <item name="android:popupMenuStyle">@style/OptionsMenuStyle</item>
     </style>
+    <style name="Theme.OnlineBankingAppProject" parent="Base.Theme.OnlineBankingAppProject"/>
 
+    <style name="OptionsMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/darkerGray</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

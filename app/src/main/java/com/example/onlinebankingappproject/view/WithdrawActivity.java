@@ -61,7 +61,8 @@ public class WithdrawActivity extends BaseActivity {
                 if (exception == null) {
                     // İşlem başarılı ise
                     Toast.makeText(WithdrawActivity.this, "Para çekme işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WithdrawActivity.this, DashboardActivity.class);
+                    Intent intent = new Intent(WithdrawActivity.this, AccountOperationsActivity.class);
+                    finish();
                     startActivity(intent);
                 } else {
                     // İşlem başarısız ise

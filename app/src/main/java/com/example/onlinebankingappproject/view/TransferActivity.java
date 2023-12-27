@@ -66,7 +66,8 @@ public class TransferActivity extends BaseActivity {
                 .thenAccept(responseData -> {
                     // İşlem başarılı ise buraya gelir
                     Toast.makeText(TransferActivity.this, "Para transfer işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, DashboardActivity.class);
+                    Intent intent = new Intent(this, AccountOperationsActivity.class);
+                    finish();
                     startActivity(intent);
                 })
                 .exceptionally(exception -> {

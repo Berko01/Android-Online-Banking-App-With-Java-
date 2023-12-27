@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
-<<<<<<< Updated upstream
-=======
+
 import android.widget.Toast;
->>>>>>> Stashed changes
+
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
@@ -22,11 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
-<<<<<<< Updated upstream
 
-=======
     private LocalStorageManager localStorageManager;
->>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +50,12 @@ public class LoginActivity extends AppCompatActivity {
                 // EditText elemanlarından e-posta ve şifre bilgilerini alıp değişkenlere atama
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
-<<<<<<< Updated upstream
+                localStorageManager.saveAccessToken(null);
                 // API servisini oluştur
                 apiAuthService.login(email, password);
 
 
                 navigateToDashboard();
-=======
                 if(email.equals("")&&password.equals("")){
                     Toast.makeText(LoginActivity.this, "E-posta veya Şifre boşluk olmamalıdır.", Toast.LENGTH_SHORT).show();
                 }else {
@@ -71,16 +66,15 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Şifreniz veya Parolanız hatali lütfen tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                     }
                 }
->>>>>>> Stashed changes
+
             }
 
         });
     }
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
+
     private void navigateToDashboard() {
         Toast.makeText(LoginActivity.this, "Giris basarili.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);

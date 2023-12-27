@@ -28,6 +28,7 @@ public class DepositActivity extends BaseActivity {
         setContentView(R.layout.activity_deposit);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         amountEditText = findViewById(R.id.amountEditText);
         depositButton = findViewById(R.id.depositButton);
         apiPostTransactionService = new ApiPostTransactionService(this);
@@ -60,7 +61,8 @@ public class DepositActivity extends BaseActivity {
                 if (exception == null) {
                     // İşlem başarılı ise
                     Toast.makeText(DepositActivity.this, "Para yatırma işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DepositActivity.this, DashboardActivity.class);
+                    Intent intent = new Intent(DepositActivity.this, AccountOperationsActivity.class);
+                    finish();
                     startActivity(intent);
                 } else {
                     // İşlem başarısız ise

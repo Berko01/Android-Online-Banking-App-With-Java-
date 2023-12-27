@@ -67,7 +67,8 @@ public class PaymentActivity extends BaseActivity {
                 if (exception == null) {
                     // İşlem başarılı ise
                     Toast.makeText(PaymentActivity.this, "Ödeme işlemi başarı ile gerçekleşti", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(PaymentActivity.this, DashboardActivity.class);
+                    Intent intent = new Intent(PaymentActivity.this, AccountOperationsActivity.class);
+                    finish();
                     startActivity(intent);
                 } else {
                     // İşlem başarısız ise
