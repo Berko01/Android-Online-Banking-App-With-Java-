@@ -1,10 +1,9 @@
 <!-- activity_deposit.xml -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#918F8E"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/relativelayout"
     tools:context="com.example.onlinebankingappproject.view.DepositActivity">
 
@@ -14,12 +13,18 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-
+    <ImageView
+        android:id="@+id/withdrawMoney"
+        android:layout_width="153dp"
+        android:layout_height="137dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/withdraw_money" />
     <EditText
         android:id="@+id/amountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/withdrawMoney"
         android:layout_marginTop="16dp"
         android:hint="Cekilecek Miktar"
         android:inputType="numberDecimal" />

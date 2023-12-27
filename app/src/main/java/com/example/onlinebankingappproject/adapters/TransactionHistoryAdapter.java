@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.model.base_models.TransactionHistoryModel;
 
@@ -68,13 +70,14 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         }
 
         public void bind(TransactionHistoryModel transaction) {
-            transactionIdTextView.setText("Transaction ID: " + transaction.getTransactionId());
-            transactionTypeTextView.setText("Transaction Type: " + transaction.getTransactionType());
-            amountTextView.setText("Amount: $" + transaction.getAmount());
-            sourceTextView.setText("Source: " + transaction.getSource());
-            statusTextView.setText("Status: " + transaction.getStatus());
-            reasonCodeTextView.setText("Reason Code: " + transaction.getReasonCode());
-            createdAtTextView.setText("Created At: " + transaction.getCreatedAt());
+            transactionIdTextView.setText("İşlem Kimliği: " + transaction.getTransactionId());
+            transactionTypeTextView.setText("İşlem Türü: " + transaction.getTransactionType());
+            amountTextView.setText("Tutar: $" + transaction.getAmount());
+            sourceTextView.setText("Kaynak: " + transaction.getSource());
+            statusTextView.setText("Durum: " + transaction.getStatus());
+            reasonCodeTextView.setText("Neden Kodu: " + transaction.getReasonCode());
+            createdAtTextView.setText("Oluşturulma Tarihi: " + transaction.getCreatedAt());
+
         }
     }
 }

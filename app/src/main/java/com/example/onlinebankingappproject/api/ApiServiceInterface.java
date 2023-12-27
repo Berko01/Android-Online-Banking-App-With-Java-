@@ -25,7 +25,6 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiServiceInterface {
-
     @POST("http://10.0.2.2:8070/register?confirm_password=1234")
     Call<RegisterResponseModel> register(@Body RegisterRequestModel registerRequestModel);
 
@@ -35,7 +34,7 @@ public interface ApiServiceInterface {
     @POST("http://10.0.2.2:8070/transact/deposit")
     Call<TransactionResponseModel> depositTransaction(@Header("Authorization") String accessToken, @Body DepositRequestModel depositRequestModel);
 
-    @POST("http://10.0.2.2:8070/transact/transfer?")
+    @POST("http://10.0.2.2:8070/transact/transfer")
     Call<TransactionResponseModel> transferTransaction(@Header("Authorization") String accessToken, @Body TransferRequestModel transferRequestModel);
 
     @POST("http://10.0.2.2:8070/transact/withdraw")
@@ -46,7 +45,6 @@ public interface ApiServiceInterface {
 
     @POST("http://10.0.2.2:8070/account/create_account")
     Call<AccountModel> createAccount(@Header("Authorization") String accessToken, @Body CreateAccountRequestModel createAccountRequestModel);
-
 
     @GET("http://10.0.2.2:8070/app/dashboard")
     Call<DashboardResponseModel> getDashboard(@Header("Authorization") String accessToken);
@@ -62,5 +60,4 @@ public interface ApiServiceInterface {
 
     @GET("http://10.0.2.2:8070/logout")
     Call<Void> logout(@Header("Authorization") String accessToken);
-
 }

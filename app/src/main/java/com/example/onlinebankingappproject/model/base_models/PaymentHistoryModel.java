@@ -5,8 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class PaymentHistoryModel {
-
-
     @SerializedName("payment_id")
     private int paymentId;
     @SerializedName("account_id")
@@ -25,6 +23,7 @@ public class PaymentHistoryModel {
     private String reasonCode;
     @SerializedName("created_at")
     private List<Integer> createdAtList;
+
     public int getPaymentId() {
         return paymentId;
     }
@@ -57,7 +56,7 @@ public class PaymentHistoryModel {
         return reasonCode;
     }
 
-    public List<Integer>getCreatedAt() {
+    public List<Integer> getCreatedAt() {
         return createdAtList;
     }
 }

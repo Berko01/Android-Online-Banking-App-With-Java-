@@ -11,7 +11,6 @@ import retrofit2.Response;
 import java.util.Map;
 
 public class ExchangeRatesApiGetRequestService {
-
     private ExchangeRatesApiClient currencyApiClient;
 
     public ExchangeRatesApiGetRequestService() {

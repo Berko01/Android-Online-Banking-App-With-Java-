@@ -1,91 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp">
 
     <TextView
         android:id="@+id/transaction_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transaction Id:"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:text="İşlem Kimliği:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/accountNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hesap Numarası:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/account_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account Id:"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/transaction_id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:text="Hesap Kimliği:"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/transactionTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transaction Type"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/account_id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:text="İşlem Türü"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/amountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amount: $0.00"
-        app:layout_constraintTop_toBottomOf="@id/transactionTypeTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
+        android:text="Miktar: "
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/sourceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Source: Online"
-        app:layout_constraintTop_toBottomOf="@id/amountTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
+        android:text="Kaynak: Online"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: Success"
-        app:layout_constraintTop_toBottomOf="@id/sourceTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
+        android:text="Durum: "
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/reasonCodeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reason Code: Transaction Successful"
-        app:layout_constraintTop_toBottomOf="@id/statusTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
+        android:text="Sonuc Kodu: "
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
     <TextView
         android:id="@+id/createdAtTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Created At: 2023-09-06 13:59:12"
-        app:layout_constraintTop_toBottomOf="@id/reasonCodeTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:text="Oluşturulma Tarihi: "
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

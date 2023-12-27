@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class AccountModel implements  Serializable{
+public class AccountModel implements Serializable {
     @SerializedName("account_id")
-    private  int account_id;
+    private int account_id;
     @SerializedName("user_id")
     private int user_id;
     @SerializedName("account_number")

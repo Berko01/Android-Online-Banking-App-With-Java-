@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.DashboardAdapter;
 import com.example.onlinebankingappproject.api.ApiGetTransactionService;
@@ -29,7 +30,7 @@ public class DashboardActivity extends BaseActivity {
         dashboardAdapter = new DashboardAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(dashboardAdapter);
-        totalUserBalance= findViewById(R.id.totalUserBalance);
+        totalUserBalance = findViewById(R.id.totalUserBalance);
         apiGetTransactionService = new ApiGetTransactionService(this);
         getDashboardData();
     }

@@ -4,14 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UserModel {
-
     private String user_id;
     private String first_name;
-    private String  last_name;
-    private String  email;
-    private String  password;
-    private String  token;
-    private String  code;
+    private String last_name;
+    private String email;
+    private String password;
+    private String token;
+    private String code;
     private int verified;
     private LocalDate verified_at;
     private LocalDateTime create_at;

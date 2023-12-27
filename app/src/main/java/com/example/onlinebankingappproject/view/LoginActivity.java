@@ -8,7 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
+<<<<<<< Updated upstream
+=======
+import android.widget.Toast;
+>>>>>>> Stashed changes
+
 import com.example.onlinebankingappproject.R;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
 import com.example.onlinebankingappproject.api.ApiAuthService;
 
 public class LoginActivity extends AppCompatActivity {
@@ -16,6 +22,11 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
+<<<<<<< Updated upstream
+
+=======
+    private LocalStorageManager localStorageManager;
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+        localStorageManager = new LocalStorageManager(this);
         ApiAuthService apiAuthService = new ApiAuthService(this);
         // Giriş yapma butonuna tıklanınca çağrılacak fonksiyonu belirleme
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -42,16 +54,43 @@ public class LoginActivity extends AppCompatActivity {
                 // EditText elemanlarından e-posta ve şifre bilgilerini alıp değişkenlere atama
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
+<<<<<<< Updated upstream
                 // API servisini oluştur
-                apiAuthService.login(email,password);
+                apiAuthService.login(email, password);
+
+
                 navigateToDashboard();
+=======
+                if(email.equals("")&&password.equals("")){
+                    Toast.makeText(LoginActivity.this, "E-posta veya Şifre boşluk olmamalıdır.", Toast.LENGTH_SHORT).show();
+                }else {
+                    apiAuthService.login(email,password);
+                    if (localStorageManager.getAccessToken()!=null){
+                        navigateToDashboard();
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Şifreniz veya Parolanız hatali lütfen tekrar deneyiniz", Toast.LENGTH_SHORT).show();
+                    }
+                }
+>>>>>>> Stashed changes
             }
 
         });
     }
+
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
     private void navigateToDashboard() {
+        Toast.makeText(LoginActivity.this, "Giris basarili.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish(); // LoginActivity'yi geri dönüş yapmasın diye kapat
     }
+
+    public void openFinancialData(View view) {
+        Intent intent = new Intent(this, CurrencyDisplayActivity.class);
+        startActivity(intent);
+    }
+
 }

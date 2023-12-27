@@ -7,7 +7,6 @@ public class TransferRequestModel {
     private String sourceAccount;
     @SerializedName("targetAccount")
     private String targetAccount;
-
     @SerializedName("amount")
     private String amount;
 

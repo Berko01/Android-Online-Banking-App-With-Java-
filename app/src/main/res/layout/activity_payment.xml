@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#918F8E"
-    tools:context=".PaymentActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.PaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -12,13 +12,20 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <ImageView
+        android:id="@+id/paymentMoney"
+        android:layout_width="153dp"
+        android:layout_height="137dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/payment_money" />
     <EditText
         android:id="@+id/beneficiaryEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/paymentMoney"
         android:layout_marginTop="16dp"
-        android:hint="Beneficiary"
+        android:hint="Alacaklı"
         android:inputType="text"/>
 
     <EditText
@@ -27,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/beneficiaryEditText"
         android:layout_marginTop="8dp"
-        android:hint="Account Number"
+        android:hint="Hesap Numarası"
         android:inputType="text"/>
 
     <EditText
@@ -36,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/accountNumberEditText"
         android:layout_marginTop="8dp"
-        android:hint="Reference"
+        android:hint="Aciklama"
         android:inputType="text"/>
 
     <EditText
@@ -45,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/referenceEditText"
         android:layout_marginTop="8dp"
-        android:hint="Payment Amount"
+        android:hint="Ödeme Miktarı"
         android:inputType="numberDecimal"/>
 
     <Button

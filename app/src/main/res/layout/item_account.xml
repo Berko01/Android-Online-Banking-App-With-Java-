@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Account Number"
+        android:text="Hesap Numarası"
         android:textSize="16sp" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Account Name"
+        android:text="Hesap Adı"
         android:textSize="16sp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Account Type"
+        android:text="Hesap Türü"
         android:textSize="16sp" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Balance"
+        android:text="Bakiye"
         android:textSize="16sp" />
 
 </LinearLayout>

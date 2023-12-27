@@ -2,6 +2,7 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
+import com.example.onlinebankingappproject.Utilities.TokenUtil.ApiAuthException;
 import com.example.onlinebankingappproject.model.request_models.RegisterRequestModel;
 import com.example.onlinebankingappproject.model.base_models.AccessTokenModel;
 import com.example.onlinebankingappproject.model.request_models.LoginRequestModel;
@@ -21,7 +22,6 @@ public class ApiAuthService {
     private Context context;
     private LocalStorageManager localStorageManager;
 
-    // Constructor'a Context ekleyin
     public ApiAuthService(Context context) {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
@@ -33,12 +33,13 @@ public class ApiAuthService {
 
         // API servisini oluştur
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
+<<<<<<< Updated upstream
 
-
-
-
+=======
+>>>>>>> Stashed changes
         // Login Request modeli oluştur
         LoginRequestModel loginRequestModel = new LoginRequestModel(email, password);
+
         // API'ye POST isteği gönder
         Call<AccessTokenModel> call = apiService.login(loginRequestModel);
 
@@ -54,17 +55,19 @@ public class ApiAuthService {
 
                     // Access token'ı SharedPreferences'a kaydet
                     localStorageManager.saveAccessToken(responseData.getAccessToken());
+<<<<<<< Updated upstream
 
 
-
-
-
-
-
+=======
+>>>>>>> Stashed changes
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
+                        localStorageManager.saveAccessToken(null);
                         System.err.println("Error Response: " + errorBody);
+                        // Hata durumunda özel exception fırlat
+                        throw new ApiAuthException("Login işlemi başarısız oldu.");
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -74,11 +77,13 @@ public class ApiAuthService {
             @Override
             public void onFailure(Call<AccessTokenModel> call, Throwable t) {
                 // İstek başarısız olduğunda buraya gelir
+
                 System.err.println("Request Failure: " + t.getMessage());
+                // Hata durumunda özel exception fırlat
+                throw new ApiAuthException("Login işlemi başarısız oldu.");
             }
         });
     }
-
 
     public void register(String first_name, String last_name, String email, String password) {
         // Retrofit istemcisini oluştur
@@ -89,6 +94,7 @@ public class ApiAuthService {
 
         // Login Request modeli oluştur
         RegisterRequestModel registerRequestModel = new RegisterRequestModel(first_name, last_name, email, password);
+
         // API'ye POST isteği gönder
         Call<RegisterResponseModel> call = apiService.register(registerRequestModel);
 
@@ -105,6 +111,7 @@ public class ApiAuthService {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -118,7 +125,6 @@ public class ApiAuthService {
             }
         });
     }
-
 
     public void logout() {
         // Retrofit istemcisini oluştur

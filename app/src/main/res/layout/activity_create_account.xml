@@ -2,19 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ImageView
+        android:id="@+id/newBankAccount"
+        android:layout_width="153dp"
+        android:layout_height="137dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/new_card" />
 
     <EditText
         android:id="@+id/accountNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/newBankAccount"
+        android:layout_marginTop="8dp"
         android:hint="Hesap Adı" />
 
     <EditText
         android:id="@+id/accountTypeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/accountNameEditText"
+        android:layout_below="@id/accountNameEditText"
         android:layout_marginTop="8dp"
         android:hint="Hesap Türü" />
 
@@ -22,7 +38,7 @@
         android:id="@+id/createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/accountTypeEditText"
+        android:layout_below="@id/accountTypeEditText"
         android:layout_marginTop="16dp"
         android:text="Hesap Aç"
         android:layout_centerHorizontal="true" />

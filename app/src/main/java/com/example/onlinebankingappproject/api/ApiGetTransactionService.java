@@ -2,6 +2,8 @@ package com.example.onlinebankingappproject.api;
 
 import android.content.Context;
 
+import com.example.onlinebankingappproject.Utilities.TokenUtil.ApiAuthException;
+import com.example.onlinebankingappproject.Utilities.TokenUtil.TransactionFailedException;
 import com.example.onlinebankingappproject.model.response_models.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.response_models.PaymentHistoryResponseModel;
 import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
@@ -18,12 +20,11 @@ public class ApiGetTransactionService {
     private Context context;
     private LocalStorageManager localStorageManager;
 
-    public ApiGetTransactionService(Context context){
+    public ApiGetTransactionService(Context context) {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
 
     }
-
 
     public CompletableFuture<DashboardResponseModel> getDashboardAsync() {
         CompletableFuture<DashboardResponseModel> future = new CompletableFuture<>();
@@ -55,6 +56,9 @@ public class ApiGetTransactionService {
                     } catch (Exception e) {
                         e.printStackTrace();
                         future.completeExceptionally(e);
+                        throw new TransactionFailedException("Transaction is failed.");
+
+
                     }
                 }
             }
@@ -63,12 +67,12 @@ public class ApiGetTransactionService {
             public void onFailure(Call<DashboardResponseModel> call, Throwable t) {
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(t);
+                throw new TransactionFailedException("Transaction is failed.");
             }
         });
 
         return future;
     }
-
 
     public CompletableFuture<PaymentHistoryResponseModel> getPaymentHistory() {
         CompletableFuture<PaymentHistoryResponseModel> future = new CompletableFuture<>();
@@ -103,6 +107,7 @@ public class ApiGetTransactionService {
                     } catch (Exception e) {
                         e.printStackTrace();
                         future.completeExceptionally(e);
+                        throw new TransactionFailedException("Transaction is failed.");
                     }
                 }
             }
@@ -112,12 +117,12 @@ public class ApiGetTransactionService {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(t);
+                throw new TransactionFailedException("Transaction is failed.");
             }
         });
 
         return future;
     }
-
 
     public CompletableFuture<TransactionHistoryResponseModel> getTransactionHistory() {
         CompletableFuture<TransactionHistoryResponseModel> future = new CompletableFuture<>();
@@ -151,6 +156,7 @@ public class ApiGetTransactionService {
                     } catch (Exception e) {
                         e.printStackTrace();
                         future.completeExceptionally(e);
+                        throw new TransactionFailedException("Transaction is failed.");
                     }
                 }
             }
@@ -160,13 +166,10 @@ public class ApiGetTransactionService {
                 // İstek başarısız olduğunda buraya gelir
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(t);
+                throw new TransactionFailedException("Transaction is failed.");
             }
         });
 
         return future;
     }
-
-
-
-
 }

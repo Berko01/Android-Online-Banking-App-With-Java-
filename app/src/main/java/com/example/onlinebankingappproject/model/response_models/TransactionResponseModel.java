@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class TransactionResponseModel {
-
     @SerializedName("user")
     private List<AccountModel> userAccounts;
 
