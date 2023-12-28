@@ -1,9 +1,9 @@
-package com.example.onlinebankingappproject.api;
+package com.example.onlinebankingappproject.api.Service;
 import android.content.Context;
 
-import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.TransactionFailedException;
-import com.example.onlinebankingappproject.api.ApiClient;
+import com.example.onlinebankingappproject.Utilities.token_util.LocalStorageManager;
+import com.example.onlinebankingappproject.Utilities.token_util.error_util.TransactionFailedException;
+import com.example.onlinebankingappproject.api.Client.ApiClient;
 import com.example.onlinebankingappproject.api.ApiServiceInterface;
 import com.example.onlinebankingappproject.model.base_models.AccountModel;
 import com.example.onlinebankingappproject.model.request_models.CreateAccountRequestModel;

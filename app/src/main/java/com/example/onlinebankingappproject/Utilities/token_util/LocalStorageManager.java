@@ -1,4 +1,4 @@
-package com.example.onlinebankingappproject.Utilities.TokenUtil;
+package com.example.onlinebankingappproject.Utilities.token_util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

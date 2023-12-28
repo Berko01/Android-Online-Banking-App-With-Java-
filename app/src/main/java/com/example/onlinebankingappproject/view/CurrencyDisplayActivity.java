@@ -7,9 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ExchangeRatesApiGetRequestService;
-
-import java.util.Map;
+import com.example.onlinebankingappproject.api.Service.ExchangeRatesApiGetRequestService;
 
 public class CurrencyDisplayActivity extends AppCompatActivity {
 

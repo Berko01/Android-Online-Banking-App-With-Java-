@@ -2,14 +2,13 @@ package com.example.onlinebankingappproject.view;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.PaymentHistoryAdapter;
-import com.example.onlinebankingappproject.api.ApiGetTransactionService;
+import com.example.onlinebankingappproject.api.Service.ApiGetTransactionService;
 
 public class PaymentHistoryActivity extends BaseActivity {
 

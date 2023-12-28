@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiAuthService;
+import com.example.onlinebankingappproject.api.Service.ApiAuthService;
 
 import java.util.concurrent.CompletableFuture;
 
