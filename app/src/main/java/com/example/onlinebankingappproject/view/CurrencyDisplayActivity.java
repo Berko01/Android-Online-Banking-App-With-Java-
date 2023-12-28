@@ -7,9 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ExchangeRatesApiGetRequestService;
-
-import java.util.Map;
+import com.example.onlinebankingappproject.api.Service.ExchangeRatesApiGetRequestService;
 
 public class CurrencyDisplayActivity extends AppCompatActivity {
 
@@ -19,7 +17,7 @@ public class CurrencyDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_currency_display);
 
         // API key, base currency ve hedef currencies parametrelerini belirle
-        String apiKey = "fca_live_USJmqSs42YgQR6NqN7rkZBmyc1ISvCmBI7WeWWih";
+        String apiKey = "your-api-key";
         String baseCurrency = "USD";
         String currencies = "EUR,TRY,JPY,GBP,AUD";
 
