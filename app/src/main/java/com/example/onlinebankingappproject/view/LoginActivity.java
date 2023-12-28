@@ -12,8 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiAuthService;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.ApiAuthException;
+import com.example.onlinebankingappproject.api.Service.ApiAuthService;
+import com.example.onlinebankingappproject.Utilities.token_util.error_util.ApiAuthException;
 import com.example.onlinebankingappproject.model.base_models.AccessTokenModel;
 
 import java.util.concurrent.CompletableFuture;

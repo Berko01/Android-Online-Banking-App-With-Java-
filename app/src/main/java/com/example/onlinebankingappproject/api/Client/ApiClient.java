@@ -1,4 +1,4 @@
-package com.example.onlinebankingappproject.api;
+package com.example.onlinebankingappproject.api.Client;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
