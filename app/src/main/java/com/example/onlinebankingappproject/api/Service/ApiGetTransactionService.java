@@ -1,12 +1,13 @@
-package com.example.onlinebankingappproject.api;
+package com.example.onlinebankingappproject.api.Service;
 
 import android.content.Context;
 
-import com.example.onlinebankingappproject.Utilities.TokenUtil.ApiAuthException;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.TransactionFailedException;
+import com.example.onlinebankingappproject.Utilities.token_util.error_util.TransactionFailedException;
+import com.example.onlinebankingappproject.api.Client.ApiClient;
+import com.example.onlinebankingappproject.api.ApiServiceInterface;
 import com.example.onlinebankingappproject.model.response_models.DashboardResponseModel;
 import com.example.onlinebankingappproject.model.response_models.PaymentHistoryResponseModel;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.LocalStorageManager;
+import com.example.onlinebankingappproject.Utilities.token_util.LocalStorageManager;
 import com.example.onlinebankingappproject.model.response_models.TransactionHistoryResponseModel;
 
 import java.util.concurrent.CompletableFuture;

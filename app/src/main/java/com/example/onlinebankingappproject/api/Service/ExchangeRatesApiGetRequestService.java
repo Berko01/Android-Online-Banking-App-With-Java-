@@ -1,5 +1,6 @@
-package com.example.onlinebankingappproject.api;
+package com.example.onlinebankingappproject.api.Service;
 
+import com.example.onlinebankingappproject.api.Client.ExchangeRatesApiClient;
 import com.example.onlinebankingappproject.model.response_models.CurrencyResponse;
 
 import java.util.concurrent.CompletableFuture;

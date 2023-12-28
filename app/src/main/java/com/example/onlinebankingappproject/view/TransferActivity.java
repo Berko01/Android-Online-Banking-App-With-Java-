@@ -7,12 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.Utilities.TokenUtil.TransactionFailedException;
-import com.example.onlinebankingappproject.api.ApiPostTransactionService;
+import com.example.onlinebankingappproject.api.Service.ApiPostTransactionService;
 import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
 
 import java.util.concurrent.CompletableFuture;

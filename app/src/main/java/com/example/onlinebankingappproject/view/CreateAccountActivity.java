@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.onlinebankingappproject.R;
-import com.example.onlinebankingappproject.api.ApiPostTransactionService;
+import com.example.onlinebankingappproject.api.Service.ApiPostTransactionService;
 import com.example.onlinebankingappproject.model.base_models.AccountModel;
 
 import java.util.concurrent.CompletableFuture;

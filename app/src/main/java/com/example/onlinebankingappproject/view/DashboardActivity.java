@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.adapters.DashboardAdapter;
-import com.example.onlinebankingappproject.api.ApiGetTransactionService;
+import com.example.onlinebankingappproject.api.Service.ApiGetTransactionService;
 
 public class DashboardActivity extends BaseActivity {
 

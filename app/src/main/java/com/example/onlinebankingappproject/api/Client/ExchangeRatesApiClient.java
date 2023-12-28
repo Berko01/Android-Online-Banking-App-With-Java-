@@ -1,5 +1,6 @@
-package com.example.onlinebankingappproject.api;
+package com.example.onlinebankingappproject.api.Client;
 
+import com.example.onlinebankingappproject.api.ExchangeRatesApiServiceInterface;
 import com.example.onlinebankingappproject.model.response_models.CurrencyResponse;
 
 import java.util.HashMap;
