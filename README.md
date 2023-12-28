@@ -31,11 +31,10 @@ This Android application is developed in Java as part of the Android Programming
 We leverage our custom API for the backend functionality of this application. The API repository can be found [here](https://github.com/Berko01/Advanced-Full-Stack-Project-With-Java-Spring-Boot-And-React-Redux-Online-Banking/tree/master/Online%20Banking%20App%20Spring%20Boot). It is a comprehensive Full Stack project developed with Java Spring Boot and React Redux, specifically designed for online banking applications.
 
 ## Some Screenshots
+## Screenshots
 
-![Screen 1](screenshots/screen1.png)
-![Screen 2](screenshots/screen2.png)
-![Screen 3](screenshots/screen3.png)
-
+![Screen 1](screenshots/ekran3-1.png)
+![Screen 2](screenshots/ekran3-2.png)
 ## Getting Started
 
 To use the Android Banking App, follow these steps:
