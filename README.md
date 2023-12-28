@@ -33,9 +33,8 @@ We leverage our custom API for the backend functionality of this application. Th
 ## Some Screenshots
 ## Screenshots
 
-![Screen 1](screenshots/screen1.png){:width="250px"}
-![Screen 2](screenshots/screen2.png){:width="250px"}
-![Screen 3](screenshots/screen3.png){:width="250px"}
+![Screen 1](screenshots/ekran3-1.png)
+![Screen 2](screenshots/ekran3-2.png)
 ## Getting Started
 
 To use the Android Banking App, follow these steps:
