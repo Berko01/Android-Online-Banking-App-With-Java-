@@ -32,9 +32,11 @@ We leverage our custom API for the backend functionality of this application. Th
 
 ## Some Screenshots
 
-![Screen 1](screenshots/screen1.png)
-![Screen 2](screenshots/screen2.png)
-![Screen 3](screenshots/screen3.png)
+<div style="text-align:center">
+  <img src="screenshots/screen1.png" alt="Screen 1" width="250"/>
+  <img src="screenshots/screen2.png" alt="Screen 2" width="250"/>
+  <img src="screenshots/screen3.png" alt="Screen 3" width="250"/>
+</div>
 
 ## Getting Started
 
