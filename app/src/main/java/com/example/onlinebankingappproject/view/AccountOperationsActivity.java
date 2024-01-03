@@ -55,6 +55,7 @@ public class AccountOperationsActivity extends BaseActivity {
                 Intent depositIntent = new Intent(AccountOperationsActivity.this, DepositActivity.class);
                 depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
                 startActivity(depositIntent);
+                finish();
             }
         });
         transferButton.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,7 @@ public class AccountOperationsActivity extends BaseActivity {
                 Intent depositIntent = new Intent(AccountOperationsActivity.this, TransferActivity.class);
                 depositIntent.putExtra("sourceAccount", selectedAccount.getAccount_id());
                 startActivity(depositIntent);
+                finish();
 
             }
         });
@@ -73,6 +75,7 @@ public class AccountOperationsActivity extends BaseActivity {
                 Intent depositIntent = new Intent(AccountOperationsActivity.this, WithdrawActivity.class);
                 depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
                 startActivity(depositIntent);
+                finish();
 
             }
         });
@@ -83,6 +86,8 @@ public class AccountOperationsActivity extends BaseActivity {
                 Intent depositIntent = new Intent(AccountOperationsActivity.this, PaymentActivity.class);
                 depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
                 startActivity(depositIntent);
+                finish();
+    
             }
         });
     }
@@ -95,4 +100,7 @@ public class AccountOperationsActivity extends BaseActivity {
         balanceTextView.setText(balance);
         accountIdTextView.setText(id);
     }
+
+
+
 }
