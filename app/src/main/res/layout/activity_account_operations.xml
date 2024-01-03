@@ -164,8 +164,8 @@
 
             <ImageView
                 android:id="@+id/depositMoney"
-                android:layout_width="133dp"
-                android:layout_height="118dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/deposit_money" />
 
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:text="Para Yatırma"
                 android:layout_below="@id/depositMoney"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="8dp"/>
         </RelativeLayout>
 
         <!-- Yeni Banka Hesabı Resmi -->
@@ -187,8 +187,8 @@
 
             <ImageView
                 android:id="@+id/transactionMoney"
-                android:layout_width="133dp"
-                android:layout_height="118dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/transaction_money" />
 
@@ -196,9 +196,9 @@
                 android:id="@+id/transferButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Para Transferi"
                 android:layout_below="@id/transactionMoney"
-                android:layout_marginTop="16dp"
-                android:text="Para Transferi" />
+                android:layout_marginTop="8dp"/>
         </RelativeLayout>
     </LinearLayout>
 
@@ -219,8 +219,8 @@
 
             <ImageView
                 android:id="@+id/withdrawMoney"
-                android:layout_width="133dp"
-                android:layout_height="118dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/withdraw_money" />
 
@@ -242,8 +242,8 @@
 
             <ImageView
                 android:id="@+id/paymentMoney"
-                android:layout_width="133dp"
-                android:layout_height="118dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/payment_money" />
 
@@ -253,6 +253,37 @@
                 android:layout_height="wrap_content"
                 android:text="Ödeme Yapma"
                 android:layout_below="@id/paymentMoney"
+                android:layout_marginTop="8dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- Ucuncu Sıra -->
+    <LinearLayout
+        android:id="@+id/thirdRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secondRow"
+        android:orientation="horizontal">
+
+        <!-- Ödeme Geçmişi Resmi -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/transferBetweenUserAccountImage"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/transaction_money" />
+
+            <Button
+                android:id="@+id/transferBetweenUserAccountButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hesaplar Arası Transfer"
+                android:layout_below="@id/transferBetweenUserAccountImage"
                 android:layout_marginTop="8dp"/>
         </RelativeLayout>
     </LinearLayout>
