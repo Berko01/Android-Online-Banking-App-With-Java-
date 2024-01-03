@@ -4,7 +4,9 @@ plugins {
 android {
     namespace = "com.example.onlinebankingappproject"
     compileSdk = 34
-
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.onlinebankingappproject"
         minSdk = 24
