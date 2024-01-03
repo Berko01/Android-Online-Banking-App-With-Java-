@@ -19,7 +19,7 @@ public class AccountOperationsActivity extends BaseActivity {
     private TextView accountNumberTextView, accountNameTextView, accountTypeTextView, balanceTextView,accountIdTextView;
     private CardView accountInfoCardView;
     private AccountModel selectedAccount;
-    private Button depositButton, transferButton, withdrawButton, paymentButton;
+    private Button depositButton, transferButton, withdrawButton, paymentButton, transferBetweenUserAccountsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class AccountOperationsActivity extends BaseActivity {
         transferButton = findViewById(R.id.transferButton);
         withdrawButton = findViewById(R.id.withdrawButton);
         paymentButton = findViewById(R.id.paymentButton);
+        transferBetweenUserAccountsButton = findViewById(R.id.transferBetweenUserAccountButton);
 
         // Seçilen hesap bilgilerini alma
         Intent intent = getIntent();
@@ -88,6 +89,15 @@ public class AccountOperationsActivity extends BaseActivity {
                 startActivity(depositIntent);
                 finish();
     
+            }
+        });
+        transferBetweenUserAccountsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent depositIntent = new Intent(AccountOperationsActivity.this, TransferBetweenUserAccountsActivity.class);
+                depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
+                startActivity(depositIntent);
+                finish();
             }
         });
     }
