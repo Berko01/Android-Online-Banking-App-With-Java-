@@ -98,7 +98,6 @@ public class AccountOperationsActivity extends BaseActivity {
                 depositIntent.putExtra("account_id", selectedAccount.getAccount_id());
                 startActivity(depositIntent);
                 finish();
-
             }
         });
     }
