@@ -3,38 +3,40 @@ package com.example.onlinebankingappproject.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.Service.ApiPostTransactionService;
-import com.example.onlinebankingappproject.databinding.ActivityDepositBinding;
 import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
 
 import java.util.concurrent.CompletableFuture;
 
 public class DepositActivity extends BaseActivity {
 
-    private ActivityDepositBinding binding; // View Binding nesnesi
-    private ApiPostTransactionService apiPostTransactionService;
+    private EditText amountEditText;
+    private Button depositButton;
+    ApiPostTransactionService apiPostTransactionService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDepositBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        Toolbar toolbar = binding.toolbar;
+        setContentView(R.layout.activity_deposit);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
-
+        amountEditText = findViewById(R.id.amountEditText);
+        depositButton = findViewById(R.id.depositButton);
         apiPostTransactionService = new ApiPostTransactionService(this);
 
-        binding.depositButton.setOnClickListener(new View.OnClickListener() {
+        depositButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // EditText'ten miktarı al
-                String depositAmount = binding.amountEditText.getText().toString();
+                String depositAmount = amountEditText.getText().toString();
 
                 // Hesap ID'sini al (Bu değeri isteğe bağlı olarak kullanabilirsiniz)
                 int accountId = getAccountId(); // Hesap ID'sini alacak bir metodunuzun olduğunu varsayalım
