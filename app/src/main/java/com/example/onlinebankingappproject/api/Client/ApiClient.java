@@ -9,11 +9,12 @@ public class ApiClient {
 
     private static Retrofit retrofit = null;
 
+    // Retrofit istemcisini oluşturan ve döndüren metot
     public static Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create()) // JSON verisini Java nesnelerine dönüştürmek için Gson kullanılır
                     .build();
         }
         return retrofit;

@@ -28,10 +28,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Acco
     private Context context;
     private int currentPosition = 0;
 
+    // Adaptörün bağlı olduğu bağlamı (context) belirleyen constructor
     public DashboardAdapter(Context context) {
         this.context = context;
     }
 
+    // Veri setini güncellemek için kullanılan metot
     public void setData(List<AccountModel> accounts) {
         accountList.clear();
         accountList.addAll(accounts);
@@ -41,21 +43,25 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Acco
     @NonNull
     @Override
     public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // ViewHolder'ı oluşturmak için kullanılan metot
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         return new AccountViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
+        // ViewHolder'ı bind etmek için kullanılan metot
         AccountModel account = accountList.get(position);
         holder.bind(account, position);
     }
 
     @Override
     public int getItemCount() {
+        // Veri setinin eleman sayısını döndüren metot
         return accountList.size();
     }
 
+    // ViewHolder sınıfı
     public class AccountViewHolder extends RecyclerView.ViewHolder {
 
         private TextView accountNumberTextView;
@@ -67,6 +73,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Acco
         private ImageView leftArrowImageView;
         private ImageView rightArrowImageView;
 
+        // ViewHolder'ı oluşturan constructor
         public AccountViewHolder(@NonNull View itemView) {
             super(itemView);
             accountNumberTextView = itemView.findViewById(R.id.accountNumberTextView);
@@ -87,6 +94,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Acco
             });
         }
 
+        // ViewHolder'ı bind etmek için kullanılan metot
         public void bind(AccountModel account, int position) {
             accountNumberTextView.setText(account.getAccount_number());
             accountNameTextView.setText(account.getAccount_name());
@@ -125,6 +133,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Acco
         }
     }
 
+    // Hesap işlemleri aktivitesini başlatan metot
     private void startAccountOperationsActivity(AccountModel selectedAccount) {
         try {
             Intent intent = new Intent(context, AccountOperationsActivity.class);

@@ -20,16 +20,19 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
     private List<TransactionHistoryModel> transactionHistoryList = new ArrayList<>();
     private Context context;
 
+    // Constructor, adaptörün bağlı olduğu bağlamı (context) belirler
     public TransactionHistoryAdapter(Context context) {
         this.context = context;
     }
 
+    // Veri setini güncellemek için kullanılan metot
     public void setData(List<TransactionHistoryModel> transactionHistoryList) {
         this.transactionHistoryList.clear();
         this.transactionHistoryList.addAll(transactionHistoryList);
         notifyDataSetChanged();
     }
 
+    // ViewHolder oluşturmak için kullanılan metot
     @NonNull
     @Override
     public TransactionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,17 +40,20 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         return new TransactionViewHolder(view);
     }
 
+    // ViewHolder'ı bind etmek için kullanılan metot
     @Override
     public void onBindViewHolder(@NonNull TransactionViewHolder holder, int position) {
         TransactionHistoryModel transaction = transactionHistoryList.get(position);
         holder.bind(transaction);
     }
 
+    // Veri setinin eleman sayısını döndüren metot
     @Override
     public int getItemCount() {
         return transactionHistoryList.size();
     }
 
+    // Inner class: ViewHolder sınıfı
     public class TransactionViewHolder extends RecyclerView.ViewHolder {
 
         private TextView transactionIdTextView;
@@ -58,6 +64,7 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         private TextView reasonCodeTextView;
         private TextView createdAtTextView;
 
+        // ViewHolder'ı oluşturan constructor
         public TransactionViewHolder(@NonNull View itemView) {
             super(itemView);
             transactionIdTextView = itemView.findViewById(R.id.transaction_id);
@@ -69,6 +76,7 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
             createdAtTextView = itemView.findViewById(R.id.createdAtTextView);
         }
 
+        // ViewHolder'ı bind etmek için kullanılan metot
         public void bind(TransactionHistoryModel transaction) {
             transactionIdTextView.setText("İşlem Kimliği: " + transaction.getTransactionId());
             transactionTypeTextView.setText("İşlem Türü: " + transaction.getTransactionType());
@@ -77,7 +85,6 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
             statusTextView.setText("Durum: " + transaction.getStatus());
             reasonCodeTextView.setText("Neden Kodu: " + transaction.getReasonCode());
             createdAtTextView.setText("Oluşturulma Tarihi: " + transaction.getCreatedAt());
-
         }
     }
 }

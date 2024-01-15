@@ -23,11 +23,13 @@ public class ApiAuthService {
     private final Context context;
     private final LocalStorageManager localStorageManager;
 
+    // Constructor, bağlam ve yerel depolama yöneticisini başlatır
     public ApiAuthService(Context context) {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
     }
 
+    // Kullanıcı girişi yapmak için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<AccessTokenModel> login(String email, String password) {
         CompletableFuture<AccessTokenModel> future = new CompletableFuture<>();
 
@@ -69,6 +71,7 @@ public class ApiAuthService {
         return future;
     }
 
+    // Kullanıcı kaydı yapmak için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<RegisterResponseModel> register(String first_name, String last_name, String email, String password) {
         CompletableFuture<RegisterResponseModel> future = new CompletableFuture<>();
 
@@ -105,6 +108,7 @@ public class ApiAuthService {
         return future;
     }
 
+    // Kullanıcı çıkışı yapmak için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<Void> logout() {
         CompletableFuture<Void> future = new CompletableFuture<>();
 

@@ -1,4 +1,5 @@
 package com.example.onlinebankingappproject.api.Service;
+
 import android.content.Context;
 
 import com.example.onlinebankingappproject.Utilities.token_util.LocalStorageManager;
@@ -23,11 +24,13 @@ public class ApiPostTransactionService {
     private Context context;
     private LocalStorageManager localStorageManager;
 
+    // Constructor, bağlam ve yerel depolama yöneticisini başlatır
     public ApiPostTransactionService(Context context) {
         this.context = context;
         this.localStorageManager = new LocalStorageManager(context);
     }
 
+    // Yeni bir hesap oluşturmak için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<AccountModel> createAccount(String account_name, String account_type) {
         CompletableFuture<AccountModel> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();
@@ -66,6 +69,7 @@ public class ApiPostTransactionService {
         return future;
     }
 
+    // Para yatırma işlemi için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<TransactionResponseModel> depositTransaction(String deposit_amount, int account_id) {
         CompletableFuture<TransactionResponseModel> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();
@@ -104,6 +108,7 @@ public class ApiPostTransactionService {
         return future;
     }
 
+    // Para transferi işlemi için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<TransactionResponseModel> transferTransaction(String sourceAccount, String targetAccount, String amount) {
         CompletableFuture<TransactionResponseModel> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();
@@ -142,6 +147,7 @@ public class ApiPostTransactionService {
         return future;
     }
 
+    // Para çekme işlemi için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<TransactionResponseModel> withdrawTransaction(String withdrawal_amount, String account_id) {
         CompletableFuture<TransactionResponseModel> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();
@@ -180,6 +186,7 @@ public class ApiPostTransactionService {
         return future;
     }
 
+    // Ödeme işlemi için asenkron bir CompletableFuture döndüren metot
     public CompletableFuture<TransactionResponseModel> paymentTransaction(String beneficiary, String account_number, String account_id, String reference, String payment_amount) {
         CompletableFuture<TransactionResponseModel> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();

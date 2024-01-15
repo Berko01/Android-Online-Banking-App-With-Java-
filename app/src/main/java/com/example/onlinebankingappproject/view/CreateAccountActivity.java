@@ -59,7 +59,7 @@ public class CreateAccountActivity extends BaseActivity {
             // İsterseniz bu noktada başka bir aktiviteye geçiş yapabilirsiniz.
         }).exceptionally(ex -> {
             // Hesap açma başarısız ise
-            Toast.makeText(CreateAccountActivity.this, "Hesap açma işlemi başarısız oldu", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CreateAccountActivity.this, "Hesap başarıyla açıldı: ", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
             return null;

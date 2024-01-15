@@ -14,14 +14,18 @@ import java.util.Map;
 public class ExchangeRatesApiGetRequestService {
     private ExchangeRatesApiClient currencyApiClient;
 
+    // ExchangeRatesApiGetRequestService sınıfının kurucu metodu
     public ExchangeRatesApiGetRequestService() {
         this.currencyApiClient = new ExchangeRatesApiClient();
     }
 
+    // En güncel döviz kuru bilgilerini asenkron olarak almak için kullanılan metot
     public CompletableFuture<Map<String, Double>> getLatestCurrencies(
             String apiKey, String baseCurrency, String currencies) {
+        // Asenkron sonuçları işlemek için CompletableFuture oluşturuluyor
         CompletableFuture<Map<String, Double>> future = new CompletableFuture<>();
 
+        // ExchangeRatesApiClient sınıfı kullanılarak API isteği yapılıyor
         currencyApiClient.getLatestCurrencies(
                 apiKey,
                 baseCurrency,
@@ -29,23 +33,27 @@ public class ExchangeRatesApiGetRequestService {
                 new Callback<CurrencyResponse>() {
                     @Override
                     public void onResponse(Call<CurrencyResponse> call, Response<CurrencyResponse> response) {
+                        // Başarılı bir cevap durumunda işlemler yapılır
                         if (response.isSuccessful()) {
+                            // Cevap gövdesinden döviz kuru verileri çıkarılır
                             Map<String, Double> data = response.body().getData();
+                            // CompletableFuture, elde edilen veri ile tamamlanır
                             future.complete(data);
                         } else {
-                            future.completeExceptionally(new RuntimeException("Request was not successful."));
+                            // Başarısız durumda CompletableFuture istisna ile tamamlanır
+                            future.completeExceptionally(new RuntimeException("İstek başarılı değil."));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<CurrencyResponse> call, Throwable t) {
+                        // Başarısız durumda CompletableFuture istisna ile tamamlanır
                         future.completeExceptionally(t);
                     }
                 }
         );
 
+        // CompletableFuture'nin ileri işlemler veya çağırıcı tarafından işlenmesi için geri döndürülür
         return future;
     }
 }
-
-

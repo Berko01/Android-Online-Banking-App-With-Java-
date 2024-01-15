@@ -4,23 +4,34 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Finansal işlemlerin detaylarını temsil eden sınıf.
+ * Her bir işlemin özelliklerini içerir.
+ */
 public class TransactionHistoryModel {
     @SerializedName("transaction_id")
-    private int transactionId;
+    private int transactionId; // İşlem kimliği
+
     @SerializedName("account_id")
-    private int accountId;
+    private int accountId; // İşlemin gerçekleştiği hesabın kimliği
+
     @SerializedName("transaction_type")
-    private String transactionType;
+    private String transactionType; // İşlem türü (örneğin, "deposit", "withdraw", "transfer", "payment" vb.)
+
     @SerializedName("amount")
-    private double amount;
+    private double amount; // İşlem miktarı
+
     @SerializedName("source")
-    private String source;
+    private String source; // İşlemin kaynağı (örneğin, transfer işlemlerinde kaynak hesap, ödeme işlemlerinde ödeme yapılacak hesap vb.)
+
     @SerializedName("status")
-    private String status;
+    private String status; // İşlem durumu (örneğin, "success", "failed" vb.)
+
     @SerializedName("reason_code")
-    private String reasonCode;
+    private String reasonCode; // İşlem durumu neden kodu (hata durumlarında kullanılabilir)
+
     @SerializedName("created_at")
-    private List<Integer> createdAt;
+    private List<Integer> createdAt; // İşlemin oluşturulma tarihi ve saati
 
     public int getTransactionId() {
         return transactionId;

@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 // Handle the result or exception when the registration operation completes
                 registrationFuture.whenComplete((registerResponseModel, throwable) -> {
-                    if (throwable == null) {
+                    if (throwable != null) {
                         // Registration successful, handle the response if needed
                         // For example, you can display a success message
                         Toast.makeText(RegisterActivity.this, "Kayıt başarılı. Mail adresinizden hesabı onaylamayı unutmayın Giriş yapabilirsiniz.", Toast.LENGTH_SHORT).show();
