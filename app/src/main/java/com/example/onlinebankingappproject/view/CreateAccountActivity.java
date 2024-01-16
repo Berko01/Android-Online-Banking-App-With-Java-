@@ -60,6 +60,7 @@ public class CreateAccountActivity extends BaseActivity {
             Intent intent = new Intent(CreateAccountActivity.this, DashboardActivity.class);
             startActivity(intent);
             finish(); // Close LoginActivity to prevent returning to it
+
             // İsterseniz bu noktada başka bir aktiviteye geçiş yapabilirsiniz.
         }).exceptionally(ex -> {
             // Hesap açma başarısız ise
