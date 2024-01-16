@@ -57,6 +57,9 @@ public class CreateAccountActivity extends BaseActivity {
         future.thenAccept(responseData -> {
             // Hesap açma başarılı ise
             Toast.makeText(CreateAccountActivity.this, "Hesap başarıyla açıldı: " + accountName, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(CreateAccountActivity.this, DashboardActivity.class);
+            startActivity(intent);
+            finish(); // Close LoginActivity to prevent returning to it
             // İsterseniz bu noktada başka bir aktiviteye geçiş yapabilirsiniz.
         }).exceptionally(ex -> {
             // Hesap açma başarısız ise
