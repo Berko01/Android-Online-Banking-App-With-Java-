@@ -14,6 +14,7 @@ import com.example.onlinebankingappproject.R;
 import com.example.onlinebankingappproject.api.Service.ApiPostTransactionService;
 import com.example.onlinebankingappproject.model.base_models.AccountModel;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateAccountActivity extends BaseActivity {
@@ -50,12 +51,12 @@ public class CreateAccountActivity extends BaseActivity {
 
     private void sendCreateAccountRequest(String accountName, String accountType) {
         // Hesap açma isteği gönder
-        CompletableFuture<AccountModel> future = apiPostTransactionService.createAccount(accountName, accountType);
+        CompletableFuture<List<AccountModel>> future = apiPostTransactionService.createAccount(accountName, accountType);
 
         // Asenkron işlemleri takip et
         future.thenAccept(responseData -> {
             // Hesap açma başarılı ise
-            Toast.makeText(CreateAccountActivity.this, "Hesap başarıyla açıldı: " + responseData.getAccount_name(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(CreateAccountActivity.this, "Hesap başarıyla açıldı: " + accountName, Toast.LENGTH_SHORT).show();
             // İsterseniz bu noktada başka bir aktiviteye geçiş yapabilirsiniz.
         }).exceptionally(ex -> {
             // Hesap açma başarısız ise

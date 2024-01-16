@@ -13,6 +13,7 @@ import com.example.onlinebankingappproject.model.request_models.TransferRequestM
 import com.example.onlinebankingappproject.model.request_models.WithdrawRequestModel;
 import com.example.onlinebankingappproject.model.response_models.TransactionResponseModel;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,27 +29,26 @@ public class ApiPostTransactionService {
         this.localStorageManager = new LocalStorageManager(context);
     }
 
-    public CompletableFuture<AccountModel> createAccount(String account_name, String account_type) {
-        CompletableFuture<AccountModel> future = new CompletableFuture<>();
+    public CompletableFuture<List<AccountModel>> createAccount(String account_name, String account_type) {
+        CompletableFuture<List<AccountModel>> future = new CompletableFuture<>();
         Retrofit retrofit = ApiClient.getClient();
         ApiServiceInterface apiService = retrofit.create(ApiServiceInterface.class);
         String accessToken = localStorageManager.getAccessToken();
         CreateAccountRequestModel createAccountRequestModel = new CreateAccountRequestModel(account_name, account_type);
 
-        Call<AccountModel> call = apiService.createAccount("Bearer " + accessToken, createAccountRequestModel);
+        Call<List<AccountModel>> call = apiService.createAccount("Bearer " + accessToken, createAccountRequestModel);
 
-        call.enqueue(new Callback<AccountModel>() {
+        call.enqueue(new Callback<List<AccountModel>>() {
             @Override
-            public void onResponse(Call<AccountModel> call, Response<AccountModel> response) {
+            public void onResponse(Call<List<AccountModel>> call, Response<List<AccountModel>> response) {
                 if (response.isSuccessful()) {
-                    AccountModel responseData = response.body();
-                    System.out.println("Response Data: " + responseData.getAccount_name() + " " + responseData.getAccount_type());
+                    List<AccountModel> responseData = response.body();
                     future.complete(responseData);
                 } else {
                     try {
                         String errorBody = response.errorBody().string();
                         System.err.println("Error Response: " + errorBody);
-                        future.completeExceptionally(new TransactionFailedException("Transaction is failed."));
+                        future.completeExceptionally(new TransactionFailedException("Account operation is failed."));
                     } catch (Exception e) {
                         e.printStackTrace();
                         future.completeExceptionally(e);
@@ -57,7 +57,7 @@ public class ApiPostTransactionService {
             }
 
             @Override
-            public void onFailure(Call<AccountModel> call, Throwable t) {
+            public void onFailure(Call<List<AccountModel>> call, Throwable t) {
                 System.err.println("Request Failure: " + t.getMessage());
                 future.completeExceptionally(new TransactionFailedException("Transaction is failed."));
             }

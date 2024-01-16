@@ -17,7 +17,7 @@ public class CurrencyDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_currency_display);
 
         // API key, base currency ve hedef currencies parametrelerini belirle
-        String apiKey = "your-api-key";
+        String apiKey = "fca_live_USJmqSs42YgQR6NqN7rkZBmyc1ISvCmBI7WeWWih";
         String baseCurrency = "USD";
         String currencies = "EUR,TRY,JPY,GBP,AUD";
 

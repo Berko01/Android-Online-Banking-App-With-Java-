@@ -44,7 +44,7 @@ public interface ApiServiceInterface {
     Call<TransactionResponseModel> paymentTransaction(@Header("Authorization") String accessToken, @Body PaymentRequestModel paymentRequestModel);
 
     @POST("http://10.0.2.2:8070/account/create_account")
-    Call<AccountModel> createAccount(@Header("Authorization") String accessToken, @Body CreateAccountRequestModel createAccountRequestModel);
+    Call<List<AccountModel>> createAccount(@Header("Authorization") String accessToken, @Body CreateAccountRequestModel createAccountRequestModel);
 
     @GET("http://10.0.2.2:8070/app/dashboard")
     Call<DashboardResponseModel> getDashboard(@Header("Authorization") String accessToken);
